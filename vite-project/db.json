@@ -2,21 +2,50 @@
   "user": [
     {
       "id": "1",
-      "name": "Jose",
+      "nombre": "Jose",
       "email": "jose@guitarstore.com",
+      "password": "qwerty",
       "range": "administrator"
     },
     {
       "id": "bfd5",
       "nombre": "maria",
       "email": "maria@gmail.com",
-      "password": "qwerty"
+      "password": "qwerty",
+      "range": ""
     },
     {
       "id": "a535",
       "nombre": "quake",
       "email": "quake@hotmail.com",
-      "password": "qwerty"
+      "password": "quake",
+      "range": ""
+    },
+    {
+      "id": "6c30",
+      "nombre": "jose",
+      "email": "quake@hotmail.es",
+      "password": "qwertyuioplk"
+    },
+    {
+      "id": "25e2",
+      "nombre": "marylin",
+      "email": "marylin@noviadefrander.com",
+      "password": "flande"
+    },
+    {
+      "id": "a92c",
+      "nombre": "andres",
+      "email": "andres@gmail.com",
+      "password": "andres",
+      "range": ""
+    },
+    {
+      "id": "053f",
+      "nombre": "oso",
+      "email": "oso@gmail.com",
+      "password": "asdfgh",
+      "range": ""
     }
   ]
 }
