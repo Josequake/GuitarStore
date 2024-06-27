@@ -1,0 +1,22 @@
+{
+  "user": [
+    {
+      "id": "1",
+      "name": "Jose",
+      "email": "jose@guitarstore.com",
+      "range": "administrator"
+    },
+    {
+      "id": "bfd5",
+      "nombre": "maria",
+      "email": "maria@gmail.com",
+      "password": "qwerty"
+    },
+    {
+      "id": "a535",
+      "nombre": "quake",
+      "email": "quake@hotmail.com",
+      "password": "qwerty"
+    }
+  ]
+}
