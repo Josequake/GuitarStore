@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import { Link } from "react-router-dom";
+import Loginget from '../services/loginget'
+
 
 function loginform() {
   const [correo, setCorreo] = useState("");
@@ -8,26 +9,9 @@ function loginform() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
-  const IngresoUser = async () => {
-    try {
-      const url = "http://localhost:3001/user";
-      const response = await axios.get(url);
-      const usuarios = response.data;
-
-      const contraExistente = usuarios.find(
-        (usuario) => usuario.email === correo
-      );
-      console.log(contraExistente);
-      if (contraExistente.password != contra) {
-        alert("correo o contraseña incorrecto");
-      } else {
-        alert("ingreso con exito!");
-        navigate("/paginaprincipal");
-      }
-    } catch (error) {
-      console.error("Error al cargar datos:", error);
-    }
+  
+  const IngresoUser = () => {
+    Loginget()
   };
 
   return (

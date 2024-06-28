@@ -1,40 +1,14 @@
 import React, { useState } from "react";
-import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
+import Registergetpost from '../services/registergetpost'
 const RegisterForm = () => {
   const [nombre, setNombre] = useState("");
   const [correo, setCorreo] = useState("");
   const [contra, setContra] = useState("");
-  const navigate = useNavigate();
+  
 
   const cargarDatos = async () => {
-    try {
-      const url = "http://localhost:3001/user";
-      const response = await axios.get(url);
-      const usuarios = response.data;
-
-      const correoExistente = usuarios.find(
-        (usuario) => usuario.email === correo
-      );
-
-      if (correoExistente) {
-        alert("Ese correo ya está registrado");
-      } else {
-        const userData = {
-          nombre: nombre,
-          email: correo,
-          password: contra,
-          range:""
-        };
-
-        await axios.post("http://localhost:3001/user", userData);
-        alert("Registro exitoso");
-        navigate("/login");
-      }
-    } catch (error) {
-      console.error("Error al cargar datos:", error);
-    }
+    Registergetpost()
   };
 
   return (

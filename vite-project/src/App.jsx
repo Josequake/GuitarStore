@@ -1,6 +1,4 @@
-
 import Routing from './routes/routing'
-
 import './App.css'
 
 function App() {
@@ -9,6 +7,7 @@ function App() {
   return (
     <>
       <div>
+        
         <Routing/>
         
 

@@ -46,6 +46,20 @@
       "email": "oso@gmail.com",
       "password": "asdfgh",
       "range": ""
+    },
+    {
+      "id": "73a2",
+      "nombre": "acdc",
+      "email": "acdc@hotmail.com",
+      "password": "acdcacdc",
+      "range": ""
+    },
+    {
+      "id": "f66a",
+      "nombre": "franco",
+      "email": "andres@gmail.es",
+      "password": "qwerty",
+      "range": ""
     }
   ]
 }
