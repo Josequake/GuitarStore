@@ -60,6 +60,34 @@
       "email": "andres@gmail.es",
       "password": "qwerty",
       "range": ""
+    },
+    {
+      "id": "531e",
+      "nombre": "don cerdo",
+      "email": "cerdo@hotmail.com",
+      "password": "cerdo cerdo",
+      "range": ""
+    },
+    {
+      "id": "4ddd",
+      "nombre": "marrano",
+      "email": "marrano@gmail.com",
+      "password": "marrano",
+      "range": ""
+    },
+    {
+      "id": "597e",
+      "nombre": "chanchito",
+      "email": "chanchito@gmail.com",
+      "password": "qwerty",
+      "range": ""
+    },
+    {
+      "id": "c520",
+      "nombre": "daniel",
+      "email": "daniel@gmail.com",
+      "password": "daniel",
+      "range": ""
     }
   ]
 }

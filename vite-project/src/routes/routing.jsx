@@ -4,6 +4,7 @@ import Login from '../pages/login'
 import Register from '../pages/register'
 import Paginaprincipal from '../pages/paginaprincipal'
 import Contactenos from '../pages/contactenos'
+import Modificaciones from '../pages/modificaciones'
 
 const Routing = () => {
   return (
@@ -13,6 +14,7 @@ const Routing = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/contactenos' element={<Contactenos />} />
+        <Route path='/modificaciones' element={<Modificaciones />} />
         
       </Routes>
     </Router>

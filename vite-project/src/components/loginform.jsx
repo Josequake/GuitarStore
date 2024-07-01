@@ -1,17 +1,44 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import Loginget from '../services/loginget'
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios"; 
 
+function LoginForm() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-function loginform() {
-  const [correo, setCorreo] = useState("");
-  const [contra, setContra] = useState("");
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  
-  const IngresoUser = () => {
-    Loginget()
+  const navigate = useNavigate(); 
+
+  const handleLogin = async () => {
+    setLoading(true);
+    setError("");
+
+    try {
+      const url = "http://localhost:3001/user";
+      const response = await axios.get(url);
+      const usuarios = response.data;
+
+      const usuarioExistente = usuarios.find((usuario) => usuario.email === email);
+
+      if (!usuarioExistente || usuarioExistente.password !== password) {
+        setError("Correo o contraseña incorrectos");
+      } else if (usuarioExistente.email === email && usuarioExistente.password === password && usuarioExistente.range !== '') {
+        alert("¡Bienvenido Administrador!");
+        navigate("/modificaciones");
+      } else {
+        alert('Ingreso con exito');
+        navigate("/");
+
+      }
+
+    ;
+    } catch (error) {
+      console.error("Error al cargar datos:", error);
+      setError("Error al intentar iniciar sesión. Por favor, inténtalo de nuevo más tarde.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -21,24 +48,30 @@ function loginform() {
         type="text"
         id="correo"
         name="correo"
-        value={correo}
-        onChange={(e) => setCorreo(e.target.value)}
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
       />
       <h1>Ingrese contraseña</h1>
       <input
         type="password"
         id="contra"
         name="contra"
-        value={contra}
-        onChange={(e) => setContra(e.target.value)}
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
       />
-      <button onClick={IngresoUser}>Ingresar</button>
-      <label htmlFor="">no tienes cuenta aun?</label>
+      {error && <p style={{ color: "red" }}>{error}</p>}
+      <button onClick={handleLogin} disabled={loading}>
+        {loading ? "Ingresando..." : "Ingresar"}
+      </button>
+      <label htmlFor="">¿No tienes cuenta aún?</label>
       <p>
-        <Link to="/register">Registrate!</Link>
+        <Link to="/register">¡Regístrate!</Link>
+      </p>
+      <p>
+        <Link to="/">Ir a página principal</Link>
       </p>
     </div>
   );
 }
 
-export default loginform;
+export default LoginForm;
