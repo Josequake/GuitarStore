@@ -1,19 +1,41 @@
-import Container from 'react-bootstrap/Container';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import axios from 'axios';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link } from 'react-router-dom'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import Container from 'react-bootstrap/Container';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 function TextLinkExample() {
+  const [nombreUsuario, setNombreUsuario] = useState('');
+
+  useEffect(() => {
+    const fetchNombreUsuario = async () => {
+      try {
+        const response = await axios.get('http://localhost:3001/user');
+        setNombreUsuario(response.data.nombre);
+      } catch (error) {
+        console.error('Error al obtener el nombre de usuario:', error);
+        // Puedes manejar el error aquí si es necesario
+      }
+    };
+
+    fetchNombreUsuario();
+  }, []); 
 
   return (
-    <Navbar className="bg-body-tertiary">
+    <Navbar className="bg-body-tertiary" expand="lg">
       <Container>
-        <Navbar.Brand href="#home"><Link to="/contactenos">Sobre nosotros</Link></Navbar.Brand>
-        <Navbar.Brand href="#home"><Link to="/login">Login</Link></Navbar.Brand>
-        <Navbar.Brand href="#home"><Link to="/register">Registrarse</Link></Navbar.Brand>
-        <Navbar.Toggle />
+        <Navbar.Brand as={Link} to="/contactenos">Sobre nosotros</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/login">Login</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/register">Registrarse</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-            Bienvenido: <a href="#login">Mark Otto</a>
+            {nombreUsuario ? (
+              `Bienvenido, ${nombreUsuario}`
+            ) : (
+              <Link to="/login">Iniciar sesión</Link>
+            )}
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>

@@ -20,7 +20,6 @@ function LoginForm() {
       const usuarios = response.data;
 
       const usuarioExistente = usuarios.find((usuario) => usuario.email === email);
-
       if (!usuarioExistente || usuarioExistente.password !== password) {
         setError("Correo o contraseña incorrectos");
       } else if (usuarioExistente.email === email && usuarioExistente.password === password && usuarioExistente.range !== '') {
@@ -29,8 +28,9 @@ function LoginForm() {
       } else {
         alert('Ingreso con exito');
         navigate("/");
-
-      }
+     
+          
+    }
 
     ;
     } catch (error) {
@@ -75,3 +75,4 @@ function LoginForm() {
 }
 
 export default LoginForm;
+

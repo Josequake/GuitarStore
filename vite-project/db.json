@@ -89,5 +89,34 @@
       "password": "daniel",
       "range": ""
     }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "instrument": "",
+      "brand": "",
+      "model": "",
+      "specifics": "",
+      "imagenUrl": "",
+      "price": ""
+    },
+    {
+      "id": "",
+      "instrumento": "guitarra electrica",
+      "marca": "gibson",
+      "modelo": "sg",
+      "especificaciones": "colo roja",
+      "precio": "500000",
+      "imagenUrl": ""
+    },
+    {
+      "id": "844a",
+      "instrument": "guitarra electrica",
+      "brand": "gibson",
+      "model": "les paul",
+      "specifics": "color madera claro",
+      "price": "400000",
+      "imagenUrl": ""
+    }
   ]
 }
