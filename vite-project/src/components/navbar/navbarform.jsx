@@ -15,7 +15,7 @@ function TextLinkExample() {
         setNombreUsuario(response.data.nombre);
       } catch (error) {
         console.error('Error al obtener el nombre de usuario:', error);
-        // Puedes manejar el error aquí si es necesario
+        
       }
     };
 
@@ -34,7 +34,7 @@ function TextLinkExample() {
             {nombreUsuario ? (
               `Bienvenido, ${nombreUsuario}`
             ) : (
-              <Link to="/login">Iniciar sesión</Link>
+              <Link to="/login">Bienvenido</Link>
             )}
           </Navbar.Text>
         </Navbar.Collapse>

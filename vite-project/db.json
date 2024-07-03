@@ -2,120 +2,36 @@
   "user": [
     {
       "id": "1",
-      "nombre": "Jose",
+      "name": "Jose",
       "email": "jose@guitarstore.com",
       "password": "qwerty",
       "range": "administrator"
     },
     {
-      "id": "bfd5",
-      "nombre": "maria",
-      "email": "maria@gmail.com",
-      "password": "qwerty",
-      "range": ""
-    },
-    {
-      "id": "a535",
-      "nombre": "quake",
-      "email": "quake@hotmail.com",
-      "password": "quake",
-      "range": ""
-    },
-    {
-      "id": "6c30",
-      "nombre": "jose",
-      "email": "quake@hotmail.es",
-      "password": "qwertyuioplk"
-    },
-    {
-      "id": "25e2",
-      "nombre": "marylin",
-      "email": "marylin@noviadefrander.com",
-      "password": "flande"
-    },
-    {
-      "id": "a92c",
-      "nombre": "andres",
-      "email": "andres@gmail.com",
-      "password": "andres",
-      "range": ""
-    },
-    {
-      "id": "053f",
-      "nombre": "oso",
-      "email": "oso@gmail.com",
-      "password": "asdfgh",
-      "range": ""
-    },
-    {
-      "id": "73a2",
-      "nombre": "acdc",
-      "email": "acdc@hotmail.com",
-      "password": "acdcacdc",
-      "range": ""
-    },
-    {
-      "id": "f66a",
-      "nombre": "franco",
-      "email": "andres@gmail.es",
-      "password": "qwerty",
-      "range": ""
-    },
-    {
-      "id": "531e",
-      "nombre": "don cerdo",
-      "email": "cerdo@hotmail.com",
-      "password": "cerdo cerdo",
-      "range": ""
-    },
-    {
-      "id": "4ddd",
-      "nombre": "marrano",
-      "email": "marrano@gmail.com",
-      "password": "marrano",
-      "range": ""
-    },
-    {
-      "id": "597e",
-      "nombre": "chanchito",
-      "email": "chanchito@gmail.com",
-      "password": "qwerty",
-      "range": ""
-    },
-    {
-      "id": "c520",
-      "nombre": "daniel",
-      "email": "daniel@gmail.com",
-      "password": "daniel",
+      "id": "2",
+      "name": "wilfredo en salsa alfredo",
+      "email": "wilfredo@erotico.com",
+      "password": "erotico",
       "range": ""
     }
   ],
   "products": [
     {
       "id": "1",
-      "instrument": "",
-      "brand": "",
-      "model": "",
-      "specifics": "",
-      "imagenUrl": "",
-      "price": ""
-    },
-    {
-      "id": "",
-      "instrumento": "guitarra electrica",
-      "marca": "gibson",
-      "modelo": "sg",
-      "especificaciones": "colo roja",
-      "precio": "500000",
+      "instrument": "guitarra electrica",
+      "brand": "jackson",
+      "model": "dinky",
+      "specifics": "color cerote",
+      "price": "1000000",
       "imagenUrl": ""
     },
     {
-      "id": "844a",
+      "id": "dbf9",
       "instrument": "guitarra electrica",
-      "brand": "gibson",
-      "model": "les paul",
-      "specifics": "color madera claro",
-      "price": "400000",
+      "brand": "jackson",
+      "model": "RR",
+      "specifics": "color blanco madera caoba",
+      "price": "2000000",
       "imagenUrl": ""
     }
   ]
