@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import PostP from '../services/products/postP'
 
-const agregarform = () => {
+const agregarPform = () => {
+  const [products,setProducts] = useState([])
   const [instrumento, setInstrumento] = useState("");
   const [marca, setMarca] = useState("");
   const [modelo, setModelo] = useState("");
@@ -10,24 +11,17 @@ const agregarform = () => {
   const [precio, setPrecio] = useState("");
   const [imagen, setImagen] = useState("");
 
-  const cargarProductos = async () => {
-    const productData = {
-      instrument: instrumento,
-      brand: marca,
-      model: modelo,
-      specifics: especificaciones,
-      price: precio,
-      imagenUrl: imagen,
-    };
-
-    try {
-      await axios.post("http://localhost:3001/products", productData);
-      alert("Instrumento ingresado con éxito");
-    } catch (error) {
-      console.error("Error al cargar datos o registrar instrumento:", error);
-      alert("Error al intentar registrar.");
-    }
+  const agregarProducto = async () => {
+    const response = await PostP()
+    setProducts(response)
+   
+     
   };
+  useEffect(() => {
+    agregarProducto()
+  },[]);
+  
+  
   return (
     <div>
       <h1>Ingrese el tipo de instrumento</h1>
@@ -82,10 +76,10 @@ const agregarform = () => {
       <p>
         si desea ingresar un instrumento rellene todos los espacios
       </p>
-      <button onClick={cargarProductos}>Ingresar</button>
+      <button onClick={agregarProducto}>Ingresar</button>
       <Link to="/">Página principal</Link>
     </div>
   );
 };
 
-export default agregarform;
+export default agregarPform;

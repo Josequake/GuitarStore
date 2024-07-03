@@ -1,5 +1,5 @@
 
-import Products from '../services/products'
+import getP from '../services/products/getP'
 import React,{useState, useEffect} from 'react'
 
 const paginaprincipalform = () => {
@@ -10,7 +10,7 @@ const paginaprincipalform = () => {
   const [epiphone,setEpiphone]= useState([])
   
   const mostrarProducto = async () => {
-    const response = await Products()
+    const response = await getP()
     setProducts(response)
    
     

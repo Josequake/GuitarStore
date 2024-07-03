@@ -3,10 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from '../pages/login'
 import Register from '../pages/register'
 import Paginaprincipal from '../pages/paginaprincipal'
-import Contactenos from '../pages/contactenos'
+import QuienSomos from '../pages/quienSomos'
 import Modificaciones from '../pages/modificaciones'
-import Agregar from '../pages/agregar'
-import Eliminar from '../pages/eliminar'
+import AgregarP from '../pages/agregarP'
+import EliminarP from '../pages/eliminarP'
+import AgregarU from '../pages/agregarU'
+import EliminarU from '../pages/eliminarU'
 
 const Routing = () => {
   return (
@@ -15,10 +17,12 @@ const Routing = () => {
         <Route path='/' element={<Paginaprincipal />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
-        <Route path='/contactenos' element={<Contactenos />} />
+        <Route path='/quienSomos' element={<QuienSomos />} />
         <Route path='/modificaciones' element={<Modificaciones />} />
-        <Route path='/eliminar' element={<Eliminar/>} />
-        <Route path='/agregar' element={<Agregar />} />
+        <Route path='/eliminarP' element={<EliminarP/>} />
+        <Route path='/agregarP' element={<AgregarP/>} />
+        <Route path='/eliminarU' element={<EliminarU/>} />
+        <Route path='/agregarU' element={<AgregarU/>} />
         
       </Routes>
     </Router>

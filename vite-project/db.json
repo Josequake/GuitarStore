@@ -21,17 +21,17 @@
       "instrument": "guitarra electrica",
       "brand": "jackson",
       "model": "dinky",
-      "specifics": "color cerote",
+      "specifics": "color cahoba",
       "price": "1000000",
       "imagenUrl": ""
     },
     {
-      "id": "dbf9",
+      "id": "2",
       "instrument": "guitarra electrica",
       "brand": "jackson",
       "model": "RR",
-      "specifics": "color blanco madera caoba",
-      "price": "2000000",
+      "specifics": "color negro",
+      "price": "12000000",
       "imagenUrl": ""
     }
   ]

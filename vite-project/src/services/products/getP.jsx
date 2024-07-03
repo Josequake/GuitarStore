@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
-const products = async () => {
+const getP = async () => {
     try {
         const url = "http://localhost:3001/products";
         const response = await axios.get(url);
@@ -13,10 +13,6 @@ const products = async () => {
     } catch (error) {
         console.log(error)
     }
-        
-  
-        
- 
 }
 
-export default products
+export default getP

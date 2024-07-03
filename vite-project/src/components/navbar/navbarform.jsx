@@ -25,7 +25,7 @@ function TextLinkExample() {
   return (
     <Navbar className="bg-body-tertiary" expand="lg">
       <Container>
-        <Navbar.Brand as={Link} to="/contactenos">Sobre nosotros</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/quiensomos">Sobre nosotros</Navbar.Brand>
         <Navbar.Brand as={Link} to="/login">Login</Navbar.Brand>
         <Navbar.Brand as={Link} to="/register">Registrarse</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

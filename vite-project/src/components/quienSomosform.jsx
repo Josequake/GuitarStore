@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import "../styles/contactenos.css";
 import Imagen from "../assets/img/imagen.avif";
 
-const contactenosform = () => {
+const quienSomosform = () => {
   const [contac, setContac] = useState("");
   const [misio, setMision] = useState("");
   const [visio, setVision] = useState("");
@@ -42,4 +42,4 @@ const contactenosform = () => {
   );
 };
 
-export default contactenosform;
+export default quienSomosform;
