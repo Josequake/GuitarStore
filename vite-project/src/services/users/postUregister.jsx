@@ -2,17 +2,17 @@ import React from 'react'
 import axios from 'axios'
 
 
-const postU = async (nombre,correo,contra,rango) => {
+const postUregister = async (nombre,correo,contra) => {
     const userData = {
         name: nombre,
         email: correo,
         password: contra,
-        range: rango, 
+        range: "", 
       };
     
     try {
       await axios.post("http://localhost:3001/user", userData);
-      alert('Administrador agregado correctamente');
+      
       
     } catch (error) {
         
@@ -20,4 +20,4 @@ const postU = async (nombre,correo,contra,rango) => {
     }
   }
 
-export default postU
+export default postUregister

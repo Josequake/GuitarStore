@@ -1,35 +1,40 @@
-import React, { useState,useEffect } from "react";
-import { Link } from "react-router-dom";
-import getANDpostU from "../services/users/getANDpostU";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import PostU from '../services/users/postU';
 
-const agregarUform = () => {
-  const [nombre, setNombre] = useState("");
-  const [correo, setCorreo] = useState("");
-  const [contra, setContra] = useState("");
-  const [rango, setRango] = useState("");
-  
+const agregarUForm = () => {
+  const [nombre, setNombre] = useState('');
+  const [correo, setCorreo] = useState('');
+  const [contra, setContra] = useState('');
+  const [rango, setRango] = useState('');
 
-  const cargarUsuario = async () => {
-    const [usuarios, setUsuarios] = useState("");
+  const agregarAdmin = async () => {
     try {
-      const response = await getANDpostU();
-      setUsuarios(response);
-     
-    } catch (error) {
-      console.error("Error al cargar datos:", error);
+      await PostU(nombre, correo, contra, rango); // Esperar a que se complete la solicitud
       
+      // Limpiar los campos después de agregar el usuario
+      setNombre('');
+      setCorreo('');
+      setContra('');
+      setRango('');
+    } catch (error) {
+      alert('Error al agregar usuario: ' + error.message);
     }
+  };
+
+  useEffect(() => {
+    
+    cargarUsuarios();
+  }, []);
+
+  const cargarUsuarios = () => {
     
   };
-  useEffect(() => {
-    cargarUsuario()
-  },[]);
-  
 
   return (
     <div>
-      <h1>Registro de Usuario</h1>
-      <p>Ingrese el nombre del usuario</p>
+      <h1>Registro de Administrador</h1>
+      <p>Ingrese el nombre del Admin</p>
       <input
         type="text"
         id="nombre"
@@ -37,7 +42,7 @@ const agregarUform = () => {
         value={nombre}
         onChange={(e) => setNombre(e.target.value)}
       />
-      <p>Ingrese el correo del usuario</p>
+      <p>Creacion del correo del Admin</p>
       <input
         type="text"
         id="correo"
@@ -45,7 +50,7 @@ const agregarUform = () => {
         value={correo}
         onChange={(e) => setCorreo(e.target.value)}
       />
-      <p>Ingrese la contraseña del usuario</p>
+      <p>Ingrese la contraseña del Admin</p>
       <input
         type="password"
         id="contra"
@@ -53,8 +58,7 @@ const agregarUform = () => {
         value={contra}
         onChange={(e) => setContra(e.target.value)}
       />
-      <p>Ingrese el rango del usuario</p>
-
+      <p>Ingrese el rango del Admin</p>
       <input
         type="text"
         id="rango"
@@ -62,9 +66,8 @@ const agregarUform = () => {
         value={rango}
         onChange={(e) => setRango(e.target.value)}
       />
-      <button onClick={cargarUsuario}>Registrarse</button>
       <p>
-        ¿Ya tienes una cuenta? <Link to="/login">Inicia sesión</Link>
+      <button onClick={agregarAdmin}>Registrar Admin</button>
       </p>
       <p>
         <Link to="/">Ir a página principal</Link>
@@ -73,4 +76,4 @@ const agregarUform = () => {
   );
 };
 
-export default agregarUform;
+export default agregarUForm;

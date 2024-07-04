@@ -1,22 +1,34 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import getANDpost from "../services/users/getANDpostU";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import PostUregister from '../services/users/postUregister';
 
-const RegisterForm = () => {
-  const [nombre, setNombre] = useState("");
-  const [correo, setCorreo] = useState("");
-  const [contra, setContra] = useState("");
-  const [usuarios, setUsuarios] = useState([]);
+const registerform = () => {
+  const [nombre, setNombre] = useState('');
+  const [correo, setCorreo] = useState('');
+  const [contra, setContra] = useState('');
+  
 
-  const cargarDatos = async () => {
+  const agregarUsuario = async () => {
     try {
-      const response = await getANDpost();
-      setUsuarios(response);
+      await PostUregister(nombre, correo, contra);
+      alert('Usuario agregado correctamente');
+     
+      setNombre('');
+      setCorreo('');
+      setContra('');
       
     } catch (error) {
-      console.error("Error al cargar datos:", error);
-     
+      alert('Error al agregar usuario: ' + error.message);
     }
+  };
+
+  useEffect(() => {
+    
+    cargarUsuarios();
+  }, []);
+
+  const cargarUsuarios = () => {
+    
   };
 
   return (
@@ -46,7 +58,7 @@ const RegisterForm = () => {
         value={contra}
         onChange={(e) => setContra(e.target.value)}
       />
-      <button onClick={cargarDatos}>Registrarse</button>
+      <button onClick={agregarUsuario}>Registrarse</button>
       <p>
         ¿Ya tienes una cuenta? <Link to="/login">Inicia sesión</Link>
       </p>
@@ -57,4 +69,4 @@ const RegisterForm = () => {
   );
 };
 
-export default RegisterForm;
+export default registerform;

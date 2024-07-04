@@ -1,18 +1,18 @@
 import React from 'react'
 import axios from 'axios'
 
-const getP = async () => {
+const getU = async () => {
     try {
-        const url = "http://localhost:3001/products";
+        const url = "http://localhost:3001/user";
         const response = await axios.get(url);
-        const productos = response.data;
+        const usuarios = response.data;
   
         
-        return productos
+        return usuarios
         
     } catch (error) {
         console.log(error)
     }
 }
 
-export default getP
+export default getU

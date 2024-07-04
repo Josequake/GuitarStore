@@ -1,6 +1,8 @@
 import React from 'react'
 import axios from 'axios'
-const postP = async () => {
+
+
+const postP = async (instrumento,marca,modelo,especificaciones,precio,imagen) => {
   const productData = {
     instrument: instrumento,
     brand: marca,
@@ -9,19 +11,14 @@ const postP = async () => {
     price: precio,
     imagenUrl: imagen,
   };
-
+  
   try {
     await axios.post("http://localhost:3001/products", productData);
-    alert("Instrumento ingresado con éxito");
-    setInstrumento("")
-    setMarca("")
-    setModelo("")
-    setEspecificaciones("")
-    setPrecio("")
-    setImagen("")
+    alert("intrumento ingresado con exito!")
+    
   } catch (error) {
-    console.error("Error al cargar datos o registrar instrumento:", error);
-    alert("Error al intentar registrar.");
+    
+    
   }
 }
 

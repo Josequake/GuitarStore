@@ -63,7 +63,7 @@ function LoginForm() {
       <button onClick={handleLogin} disabled={loading}>
         {loading ? "Ingresando..." : "Ingresar"}
       </button>
-      <label htmlFor="">¿No tienes cuenta aún?</label>
+      <p>¿No tienes cuenta aún?</p>
       <p>
         <Link to="/register">¡Regístrate!</Link>
       </p>

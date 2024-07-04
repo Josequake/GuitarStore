@@ -8,14 +8,27 @@ const ModificacionesForm = () => {
   return (
     <div>
       <h2>Que desea hacer administrador!</h2>
-      <button><Link to='/agregarP'>Agregar producto</Link></button>
-      <button><Link to='/eliminarP'>Eliminar producto</Link></button>
-      <button><Link to='/modificarP'>Modificar producto</Link></button>
+      <p>
+      <button><Link to='/agregarP'>Agregar Producto</Link></button>
+      </p>
+      <p>
+      <button><Link to='/eliminarP'>Eliminar Producto</Link></button>
+      </p>
+      <p>
+      <button><Link to='/modificarP'>Modificar Producto</Link></button>
+      </p>
+      <p>
       <button><Link to='/agregarU'>Agregar Administrador</Link></button>
+      </p>
+      <p>
       <button><Link to='/eliminarU'>Eliminar Administrador</Link></button>
-      <button><Link to='/modificarU'>Modificar Administrados</Link></button>
+      </p>
+      <p>
+      <button><Link to='/modificarU'>Modificar Administrador</Link></button>
+      </p>
+      <p>
       <button><Link to='/'>Pagina Principal</Link></button>
-
+      </p>
     </div>
   );
 };

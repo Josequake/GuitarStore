@@ -65,7 +65,7 @@ const paginaprincipalform = () => {
             {e.price}
            </p>
            <p>
-            {e.imagenUrl}
+           <img src={e.imagenUrl}style={{ width: '100px', height: 'auto' }} />
            </p>
            </div>
           ))}
@@ -89,7 +89,7 @@ const paginaprincipalform = () => {
             {e.price}
            </p>
            <p>
-            {e.imagenUrl}
+           <img src={e.imagenUrl}style={{ width: '100px', height: 'auto' }} />
            </p>
            </div>
           ))}
@@ -113,8 +113,8 @@ const paginaprincipalform = () => {
             {e.price}
            </p>
            <p>
-            {e.imagenUrl}
-           </p>
+           <img src={e.imagenUrl}style={{ width: '100px', height: 'auto' }} />
+            </p>
            </div>
           ))}
       </p>
@@ -137,7 +137,7 @@ const paginaprincipalform = () => {
             {e.price}
            </p>
            <p>
-            {e.imagenUrl}
+           <img src={e.imagenUrl}style={{ width: '100px', height: 'auto' }} />
            </p>
            </div>
           ))}

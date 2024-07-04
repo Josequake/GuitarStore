@@ -1,20 +1,25 @@
-import { Link } from "react-router-dom";
 import React, { useState } from "react";
-import deleteP from "../services/products/deleteP";
+import { Link } from "react-router-dom";
+import eliminarP from "../services/products/eliminarP";
+import ModifyP from '../services/products/modifyP'
 
-const EliminarPForm = () => {
-  const [id, setId] = useState(""); // Estado para almacenar el ID del producto a eliminar
-  const [deletedProduct, setDeletedProduct] = useState(null); // Estado para almacenar el producto eliminado
+const eliminarPForm = () => {
+  const [id, setId] = useState("");
+  const [deletedProduct, setDeletedProduct] = useState(null);
 
-  const eliminarProducto = async () => {
+  const eliminarProducto = () => {
+    
     try {
-      const response = await deleteP(id); // Llamar a la función deleteP con el ID
-      setDeletedProduct(response); // Guardar el producto eliminado en el estado
+      eliminarP(id);
+      setDeletedProduct(id);
+      alert("Producto eliminado con éxito");
+      setId("");
     } catch (error) {
-      console.error("Error al eliminar el producto:", error);
+      //console.error("Error al eliminar el producto:", error);
+      setDeletedProduct(null);
     }
   };
-
+ 
   return (
     <div>
       <h1>Eliminar Producto</h1>
@@ -28,13 +33,10 @@ const EliminarPForm = () => {
       />
       <button onClick={eliminarProducto}>Eliminar</button>
       
-      {deletedProduct && (
-        <p>Producto con ID {deletedProduct.id} eliminado correctamente.</p>
-      )}
 
       <Link to="/">Volver a la página principal</Link>
     </div>
   );
 };
 
-export default EliminarPForm;
+export default eliminarPForm;

@@ -1,30 +1,46 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import PostP from '../services/products/postP'
 
 const agregarPform = () => {
-  const [products,setProducts] = useState([])
+  
   const [instrumento, setInstrumento] = useState("");
   const [marca, setMarca] = useState("");
   const [modelo, setModelo] = useState("");
   const [especificaciones, setEspecificaciones] = useState("");
   const [precio, setPrecio] = useState("");
   const [imagen, setImagen] = useState("");
+  
 
   const agregarProducto = async () => {
-    const response = await PostP()
-    setProducts(response)
-   
-     
+    try {
+      await PostP(instrumento,marca,modelo,especificaciones,precio,imagen)
+      setInstrumento("")
+      setMarca("")
+      setModelo("")
+      setEspecificaciones("")
+      setPrecio("")
+      setImagen("")
+    } catch (error) {
+      alert('Error al agregar instrumento: ' + error.message);
+      
+    }
+      
   };
   useEffect(() => {
-    agregarProducto()
+    cargarProductos()
   },[]);
-  
+  const cargarProductos = () => {
+    
+  };
   
   return (
     <div>
-      <h1>Ingrese el tipo de instrumento</h1>
+      <h1>
+        Si desea ingresar un instrumento <br />
+        rellene todos los espacios
+      </h1>
+      <h3>Ingrese el tipo de instrumento</h3>
       <input
         type="text"
         name="instrumento"
@@ -32,7 +48,7 @@ const agregarPform = () => {
         value={instrumento}
         onChange={(e) => setInstrumento(e.target.value)}
       />
-      <h1>Ingrese la marca del instrumento</h1>
+      <h3>Ingrese la marca del instrumento</h3>
       <input
         type="text"
         name="marca"
@@ -40,7 +56,7 @@ const agregarPform = () => {
         value={marca}
         onChange={(e) => setMarca(e.target.value)}
       />
-      <h1>Ingrese el modelo del instrumento</h1>
+      <h3>Ingrese el modelo del instrumento</h3>
       <input
         type="text"
         name="modelo"
@@ -48,7 +64,7 @@ const agregarPform = () => {
         value={modelo}
         onChange={(e) => setModelo(e.target.value)}
       />
-      <h1>Ingrese las especificaciones del instrumento</h1>
+      <h3>Ingrese las especificaciones del instrumento</h3>
       <input
         type="text"
         name="especificaciones"
@@ -56,7 +72,7 @@ const agregarPform = () => {
         value={especificaciones}
         onChange={(e) => setEspecificaciones(e.target.value)}
       />
-      <h1>Ingrese el precio del instrumento</h1>
+      <h3>Ingrese el precio del instrumento</h3>
       <input
         type="text"
         name="precio"
@@ -64,7 +80,7 @@ const agregarPform = () => {
         value={precio}
         onChange={(e) => setPrecio(e.target.value)}
       />
-      <h1>Ingrese la imagen del instrumento</h1>
+      <h3>Ingrese la imagen del instrumento</h3>
       <input
         type="text"
         name="imagen"
@@ -73,9 +89,7 @@ const agregarPform = () => {
         onChange={(e) => setImagen(e.target.value)}
       />
 
-      <p>
-        si desea ingresar un instrumento rellene todos los espacios
-      </p>
+      
       <button onClick={agregarProducto}>Ingresar</button>
       <Link to="/">Página principal</Link>
     </div>

@@ -9,6 +9,9 @@ import AgregarP from '../pages/agregarP'
 import EliminarP from '../pages/eliminarP'
 import AgregarU from '../pages/agregarU'
 import EliminarU from '../pages/eliminarU'
+import ModificarP from '../pages/modificarP'
+import ModificarU from '../pages/modificarU'
+
 
 const Routing = () => {
   return (
@@ -21,8 +24,10 @@ const Routing = () => {
         <Route path='/modificaciones' element={<Modificaciones />} />
         <Route path='/eliminarP' element={<EliminarP/>} />
         <Route path='/agregarP' element={<AgregarP/>} />
+        <Route path='/modificarP' element={<ModificarP/>} />
         <Route path='/eliminarU' element={<EliminarU/>} />
         <Route path='/agregarU' element={<AgregarU/>} />
+        <Route path='/modificarU' element={<ModificarU/>} />
         
       </Routes>
     </Router>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom"
 import "../styles/contactenos.css";
-import Imagen from "../assets/img/imagen.avif";
+
 
 const quienSomosform = () => {
   const [contac, setContac] = useState("");

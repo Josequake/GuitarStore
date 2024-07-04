@@ -17,22 +17,40 @@
   ],
   "products": [
     {
-      "id": "1",
+      "id": "21ce",
       "instrument": "guitarra electrica",
       "brand": "jackson",
       "model": "dinky",
-      "specifics": "color cahoba",
+      "specifics": "color azul con floyd rose",
       "price": "1000000",
-      "imagenUrl": ""
+      "imagenUrl": "C:\\Users\\Quake\\OneDrive\\Desktop\\GuitarStore\\vite-project\\src\\assets\\img\\dinky.jpg"
     },
     {
-      "id": "2",
+      "id": "dfa8",
       "instrument": "guitarra electrica",
       "brand": "jackson",
       "model": "RR",
-      "specifics": "color negro",
-      "price": "12000000",
-      "imagenUrl": ""
+      "specifics": "color verde",
+      "price": "100000000",
+      "imagenUrl": "https://t3.ftcdn.net/jpg/06/01/40/12/360_F_601401243_YdwME13LtFCZ5weRoxh3AT2OaIITPDRj.jpg"
+    },
+    {
+      "id": "52fe",
+      "instrument": "guitarra electrica",
+      "brand": "gibson",
+      "model": "SG",
+      "specifics": "color vino vintage",
+      "price": "1000000",
+      "imagenUrl": "C:\\Users\\Quake\\OneDrive\\Desktop\\GuitarStore\\vite-project\\src\\assets\\img\\sg.jpg"
+    },
+    {
+      "id": "0aae",
+      "instrument": "guitarra electrica",
+      "brand": "gibson",
+      "model": "les paul",
+      "specifics": "color miel",
+      "price": "1000000",
+      "imagenUrl": "C:\\Users\\Quake\\OneDrive\\Desktop\\GuitarStore\\vite-project\\src\\assets\\img\\lespaul.jpg"
     }
   ]
 }
