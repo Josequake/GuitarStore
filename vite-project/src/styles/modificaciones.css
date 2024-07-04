@@ -1,0 +1,19 @@
+.div{
+    background-image: url(/vite-project/src/assets/img/engranaje.avif);
+}
+.h2{
+    text-align: center;
+    text-decoration: underline;
+}
+.link{
+    color: white;
+}
+.button{
+    border-radius: 20px;
+    background-color: black;
+    margin: 20px;
+    padding: 1% 1% 1% 1%;
+}
+.paragraph{
+    margin-right: 30%;
+}

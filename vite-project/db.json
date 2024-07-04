@@ -13,6 +13,13 @@
       "email": "wilfredo@erotico.com",
       "password": "erotico",
       "range": ""
+    },
+    {
+      "id": "d7b3",
+      "name": "andres",
+      "email": "marylin@noviadefrander.com",
+      "password": "qwerty",
+      "range": ""
     }
   ],
   "products": [
@@ -20,37 +27,109 @@
       "id": "21ce",
       "instrument": "guitarra electrica",
       "brand": "jackson",
-      "model": "dinky",
-      "specifics": "color azul con floyd rose",
-      "price": "1000000",
-      "imagenUrl": "C:\\Users\\Quake\\OneDrive\\Desktop\\GuitarStore\\vite-project\\src\\assets\\img\\dinky.jpg"
+      "model": "RR",
+      "specifics": "color blanco con negro",
+      "price": "300000",
+      "imagenUrl": "https://www.mundomusicalcr.com/wp-content/uploads/0901136.png"
     },
     {
       "id": "dfa8",
       "instrument": "guitarra electrica",
       "brand": "jackson",
-      "model": "RR",
-      "specifics": "color verde",
-      "price": "100000000",
-      "imagenUrl": "https://t3.ftcdn.net/jpg/06/01/40/12/360_F_601401243_YdwME13LtFCZ5weRoxh3AT2OaIITPDRj.jpg"
+      "model": "Dinky",
+      "specifics": "color blanco con mastil claro",
+      "price": "550000",
+      "imagenUrl": "https://www.mundomusicalcr.com/wp-content/uploads/0901129-0-300x300.jpg"
     },
     {
       "id": "52fe",
       "instrument": "guitarra electrica",
-      "brand": "gibson",
-      "model": "SG",
-      "specifics": "color vino vintage",
-      "price": "1000000",
-      "imagenUrl": "C:\\Users\\Quake\\OneDrive\\Desktop\\GuitarStore\\vite-project\\src\\assets\\img\\sg.jpg"
+      "brand": "jackson",
+      "model": "Warrior",
+      "specifics": "color gris",
+      "price": "350000",
+      "imagenUrl": "https://www.mundomusicalcr.com/wp-content/uploads/0901017-300x300.jpg"
     },
     {
       "id": "0aae",
       "instrument": "guitarra electrica",
+      "brand": "jackson",
+      "model": "JS",
+      "specifics": "color morado",
+      "price": "1000000",
+      "imagenUrl": "https://www.mundomusicalcr.com/wp-content/uploads/0901021-005-300x300.jpg"
+    },
+    {
+      "id": "65f1",
+      "instrument": "guitarra electrica",
+      "brand": "gibson",
+      "model": "Les paul",
+      "specifics": "Color celeste",
+      "price": "750000",
+      "imagenUrl": "https://www.shutterstock.com/image-vector/flat-line-color-electric-guuitar-600nw-2350122957.jpg"
+    },
+    {
+      "id": "f2d0",
+      "instrument": "guitarra electrica",
       "brand": "gibson",
       "model": "les paul",
-      "specifics": "color miel",
-      "price": "1000000",
-      "imagenUrl": "C:\\Users\\Quake\\OneDrive\\Desktop\\GuitarStore\\vite-project\\src\\assets\\img\\lespaul.jpg"
+      "specifics": "Color miel",
+      "price": "850000",
+      "imagenUrl": "https://www.greenmusicians.com/29871/gibson-reissue-1960-les-paul-aged-2012-custom-shop.jpg"
+    },
+    {
+      "id": "395e",
+      "instrument": "guitarra electrica",
+      "brand": "gibson",
+      "model": "SG",
+      "specifics": "Color vino",
+      "price": "550000",
+      "imagenUrl": "https://www.shutterstock.com/image-photo/electric-guitar-260nw-396236605.jpg"
+    },
+    {
+      "id": "24a5",
+      "instrument": "guitarra electrica",
+      "brand": "gibson",
+      "model": "SG",
+      "specifics": "Color azul con negro",
+      "price": "350000",
+      "imagenUrl": "https://www.shutterstock.com/image-photo/bangkok-thailand-july-18-2020-260nw-1782946244.jpg"
+    },
+    {
+      "id": "af5c",
+      "instrument": "guitarra electrica",
+      "brand": "gibson",
+      "model": "Explorer",
+      "specifics": "Color madera claro",
+      "price": "650000",
+      "imagenUrl": "https://musicheadstore.com/wp-content/uploads/2024/01/Gibson-70s-Explorer-Electric-Guitar-1.jpg"
+    },
+    {
+      "id": "8fee",
+      "instrument": "guitarra electrica",
+      "brand": "fender",
+      "model": "Stratocaster",
+      "specifics": "Color miel con blanco",
+      "price": "850000",
+      "imagenUrl": "https://files2.soniccdn.com/imagecache/b66/d0ef6fcfb88c9a227f6bf6952cdbf-1495656.jpg"
+    },
+    {
+      "id": "6400",
+      "instrument": "guitarra electrica",
+      "brand": "fender",
+      "model": "Telecaster",
+      "specifics": "Color verde con blanco",
+      "price": "450000",
+      "imagenUrl": "https://guitarshop.es/wp-content/uploads/Fender-Telecaster-Japan-TL-STD-2010-guitar-shop-barcelona-2-scaled.jpg"
+    },
+    {
+      "id": "09d9",
+      "instrument": "guitarra acustica",
+      "brand": "epiphone",
+      "model": "EAPRNACH1",
+      "specifics": "Color madera",
+      "price": "100000",
+      "imagenUrl": "https://www.musicolorcq.com/wp-content/uploads/2020/10/DM0018208.jpg"
     }
   ]
 }

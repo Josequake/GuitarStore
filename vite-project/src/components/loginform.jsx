@@ -23,7 +23,9 @@ function LoginForm() {
       if (!usuarioExistente || usuarioExistente.password !== password) {
         setError("Correo o contraseña incorrectos");
       } else if (usuarioExistente.email === email && usuarioExistente.password === password && usuarioExistente.range !== '') {
-        alert("¡Bienvenido Administrador!");
+        setTimeout(() => {
+          alert("¡Bienvenido Administrador!");
+        }, 10);
         navigate("/modificaciones");
       } else {
         alert('Ingreso con exito');

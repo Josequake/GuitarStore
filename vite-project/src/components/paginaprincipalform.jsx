@@ -1,150 +1,63 @@
+import getP from '../services/products/getP';
+import React, { useState, useEffect } from 'react';
 
-import getP from '../services/products/getP'
-import React,{useState, useEffect} from 'react'
+const PaginaPrincipalForm = () => {
+  const [products, setProducts] = useState([]);
+  const [gibson, setGibson] = useState('gibson');
+  const [fender, setFender] = useState('fender');
+  const [jackson, setJackson] = useState('jackson');
+  const [epiphone, setEpiphone] = useState('epiphone');
+  const [resultado, setResultado] = useState([]);
 
-const paginaprincipalform = () => {
-  const [products,setProducts] = useState([])
-  const [gibson,setGibson]= useState([])
-  const [fender,setFender]= useState([])
-  const [jackson,setJackson]= useState([])
-  const [epiphone,setEpiphone]= useState([])
-  
   const mostrarProducto = async () => {
-    const response = await getP()
-    setProducts(response)
-   
-    
-    
+    const response = await getP();
+    setProducts(response);
   };
-  const validagibson = () => {
-     const resultadoGibson = products.filter(marca => marca.brand == 'gibson');
-     setGibson(resultadoGibson)
-  };
-  const validafender = () => {
-    const resultadoFender = products.filter(marca => marca.brand == 'fender');
-    setFender(resultadoFender)
-  };
-  const validajackson = () => {
-    const resultadoJackson = products.filter(marca => marca.brand == 'jackson');
-    setJackson(resultadoJackson)
-  };
-  const validaepiphone = () => {
-    const resultadoEpiphone = products.filter(marca => marca.brand == 'epiphone');
-    setEpiphone(resultadoEpiphone)
+
+  const validaInformacion = (id) => {
+    let filteredProducts = [];
+    if (id === gibson) {
+      filteredProducts = products.filter((marca) => marca.brand === 'gibson');
+    } else if (id === fender) {
+      filteredProducts = products.filter((marca) => marca.brand === 'fender');
+    } else if (id === jackson) {
+      filteredProducts = products.filter((marca) => marca.brand === 'jackson');
+    } else if (id === epiphone) {
+      filteredProducts = products.filter((marca) => marca.brand === 'epiphone');
+    }
+    setResultado(filteredProducts);
   };
 
   useEffect(() => {
-    mostrarProducto()
-  },[]);
-  
-  console.log(products)
+    mostrarProducto();
+  }, []);
+
+  console.log(products);
+
   return (
     <div>
       <h1>Bienvenido a Guitar Quake Store</h1>
       <h2>no apto para mancos</h2>
-      <button onClick={validagibson}>Gibson</button>
-      <button onClick={validafender}>Fender</button>
-      <button onClick={validajackson}>Jackson</button>
-      <button onClick={validaepiphone}>Epiphone</button>
-      <p>
-        {gibson.map((e) => (
-          <div>
-           <p>
-           {e.brand}
-           </p>
-           <p>
-           {e.instrument}
-           </p>
-           <p>
-           {e.model}
-           </p>
-           <p>
-            {e.specifics}
-           </p>
-           <p>
-            {e.price}
-           </p>
-           <p>
-           <img src={e.imagenUrl}style={{ width: '100px', height: 'auto' }} />
-           </p>
-           </div>
-          ))}
-      </p>
-      <p>
-        {fender.map((e) => (
-          <div>
-           <p>
-           {e.brand}
-           </p>
-           <p>
-           {e.instrument}
-           </p>
-           <p>
-           {e.model}
-           </p>
-           <p>
-            {e.specifics}
-           </p>
-           <p>
-            {e.price}
-           </p>
-           <p>
-           <img src={e.imagenUrl}style={{ width: '100px', height: 'auto' }} />
-           </p>
-           </div>
-          ))}
-      </p>
-      <p>
-        {jackson.map((e) => (
-          <div>
-           <p>
-           {e.brand}
-           </p>
-           <p>
-           {e.instrument}
-           </p>
-           <p>
-           {e.model}
-           </p>
-           <p>
-            {e.specifics}
-           </p>
-           <p>
-            {e.price}
-           </p>
-           <p>
-           <img src={e.imagenUrl}style={{ width: '100px', height: 'auto' }} />
+      <button onClick={() => validaInformacion(gibson)}>{gibson}</button>
+      <button onClick={() => validaInformacion(fender)}>{fender}</button>
+      <button onClick={() => validaInformacion(jackson)}>{jackson}</button>
+      <button onClick={() => validaInformacion(epiphone)}>{epiphone}</button>
+      <div>
+        {resultado.map((e, index) => (
+          <div key={index}>
+            <p>{e.brand}</p>
+            <p>{e.instrument}</p>
+            <p>{e.model}</p>
+            <p>{e.specifics}</p>
+            <p>{e.price}</p>
+            <p>
+              <img src={e.imagenUrl} style={{ width: '100px', height: 'auto' }} alt={e.brand} />
             </p>
-           </div>
-          ))}
-      </p>
-      <p>
-        {epiphone.map((e) => (
-          <div>
-           <p>
-           {e.brand}
-           </p>
-           <p>
-           {e.instrument}
-           </p>
-           <p>
-           {e.model}
-           </p>
-           <p>
-            {e.specifics}
-           </p>
-           <p>
-            {e.price}
-           </p>
-           <p>
-           <img src={e.imagenUrl}style={{ width: '100px', height: 'auto' }} />
-           </p>
-           </div>
-          ))}
-      </p>
+          </div>
+        ))}
+      </div>
     </div>
-  )
-}
-export default paginaprincipalform
+  );
+};
 
-
+export default PaginaPrincipalForm;

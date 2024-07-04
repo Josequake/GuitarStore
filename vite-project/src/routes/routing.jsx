@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from '../pages/login'
 import Register from '../pages/register'
 import Paginaprincipal from '../pages/paginaprincipal'
-import QuienSomos from '../pages/quienSomos'
 import Modificaciones from '../pages/modificaciones'
 import AgregarP from '../pages/agregarP'
 import EliminarP from '../pages/eliminarP'
@@ -20,7 +19,6 @@ const Routing = () => {
         <Route path='/' element={<Paginaprincipal />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
-        <Route path='/quienSomos' element={<QuienSomos />} />
         <Route path='/modificaciones' element={<Modificaciones />} />
         <Route path='/eliminarP' element={<EliminarP/>} />
         <Route path='/agregarP' element={<AgregarP/>} />
