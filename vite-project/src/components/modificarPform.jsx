@@ -1,63 +1,24 @@
-import React, { useState } from 'react';
-import axios from 'axios'; // Asumiendo que axios está instalado y configurado correctamente
+import React from 'react'
 
-const ModificarPform = () => {
-  const [id, setId] = useState('');
-  const [instrumento, setInstrumento] = useState('');
-  const [marca, setMarca] = useState('');
-  const [modelo, setModelo] = useState('');
-  const [especificaciones, setEspecificaciones] = useState('');
-  const [precio, setPrecio] = useState('');
-  const [imagen, setImagen] = useState('');
+const modificarPform = () => {
+  const [products, setProducts] = useState([]);
+  const [instrumento, setInstrumento] = useState("");
+  const [marca, setMarca] = useState("");
+  const [modelo, setModelo] = useState("");
+  const [especificaciones, setEspecificaciones] = useState("");
+  const [precio, setPrecio] = useState("");
+  const [imagen, setImagen] = useState("");
+  
 
-  const getP = async () => {
-    try {
-      const response = await axios.get(`http://localhost:3001/products${id}`); // Reemplaza 'URL_DE_TU_API' por la URL correcta de tu API
-      // Suponiendo que la respuesta de tu API contiene los datos del producto encontrado
-      setInstrumento(response.data.instrumento);
-      setMarca(response.data.marca);
-      setModelo(response.data.modelo);
-      setEspecificaciones(response.data.especificaciones);
-      setPrecio(response.data.precio);
-      setImagen(response.data.imagen);
-    } catch (error) {
-      console.error('Error al obtener el producto:', error);
+
+  const modificarProducto = async () => {
+    
+    const agregarProducto = async () => {
+  
     }
-  };
-
-  const actualizarProducto = async () => {
-    try {
-      await axios.post('http://localhost:3001/products', {
-        id,
-        instrumento,
-        marca,
-        modelo,
-        especificaciones,
-        precio,
-        imagen
-      });
-      console.log('Producto actualizado correctamente.');
-      // Limpiar los campos después de la actualización
-      limpiarCampos();
-    } catch (error) {
-      console.error('Error al actualizar el producto:', error);
-    }
-  };
-
-  const limpiarCampos = () => {
-    setId('');
-    setInstrumento('');
-    setMarca('');
-    setModelo('');
-    setEspecificaciones('');
-    setPrecio('');
-    setImagen('');
-  };
-
   return (
     <div>
-      <h1>Modificar o Ingresar Producto</h1>
-
+      <h1>Modificar Producto</h1>
       <p>Ingrese el ID del producto que desea modificar:</p>
       <input
         type="text"
@@ -66,8 +27,10 @@ const ModificarPform = () => {
         value={id}
         onChange={(e) => setId(e.target.value)}
       />
-      <button onClick={getP}>Modificar</button>
+      <button onClick={modificarProducto}>Eliminar</button>
+      
 
+      <Link to="/">Volver a la página principal</Link>
       <h1>
         Si desea ingresar un instrumento <br />
         rellene todos los espacios
@@ -121,12 +84,11 @@ const ModificarPform = () => {
         onChange={(e) => setImagen(e.target.value)}
       />
 
-      <button onClick={actualizarProducto}>Acttualizar</button>
-
-      {/* Asumiendo que utilizas React Router para manejar las rutas */}
-      <Link to="/">Volver a la página principal</Link>
+      
+      <button onClick={agregarProducto}>Ingresar</button>
+      <Link to="/">Página principal</Link>
     </div>
-  );
-};
+  )
+}}
 
-export default ModificarPform;
+export default modificarPform
