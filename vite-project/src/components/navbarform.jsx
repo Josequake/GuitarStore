@@ -4,6 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import "bootstrap/dist/css/bootstrap.min.css";
 import GetU from '../services/users/getU'; 
+import background from '../assets/img/cielo.png';
 
 function Navbarform() {
   const [usuarioLogueado, setUsuarioLogueado] = useState('');
@@ -16,7 +17,6 @@ function Navbarform() {
       }
     } catch (error) {
       console.error('Error al obtener el usuario logueado:', error);
-      
     }
   };
 
@@ -25,19 +25,23 @@ function Navbarform() {
   }, []);
 
   return (
-    <Navbar className="bg-body-tertiary" expand="lg">
+    <Navbar style={{backgroundImage: `url(${background})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat'}} className="bg-body-tertiary" expand="lg">
       <Container>
-        <Navbar.Brand as={Link} to="/login">
-          Login
+        <Navbar.Brand className="sign" as={Link} to="/login">
+          Sign in!
         </Navbar.Brand>
-        <Navbar.Brand as={Link} to="/register">
-          Registrarse
+        <Navbar.Brand className="sign" as={Link} to="/register">
+          Sign up!
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-            <h1>Bienvenido</h1>
-            {usuarioLogueado && <p>{usuarioLogueado}</p>}
+            <h1 className="sign">Welcome to guitar paradise!</h1>
+            {usuarioLogueado ? (
+              <p>{usuarioLogueado}</p>
+            ) : (
+              <p>Usuario no logueado</p>
+            )}
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>

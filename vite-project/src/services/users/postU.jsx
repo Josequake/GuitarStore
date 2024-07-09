@@ -12,7 +12,7 @@ const postU = async (nombre,correo,contra,rango) => {
     
     try {
       await axios.post("http://localhost:3001/user", userData);
-      alert('Administrador agregado correctamente');
+      
       
     } catch (error) {
         

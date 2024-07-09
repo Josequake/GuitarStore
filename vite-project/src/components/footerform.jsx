@@ -13,28 +13,31 @@ function footerform() {
         aria-controls="example-fade-text"
         aria-expanded={open}
       >
-        Sobre Nosotros
+        About US!
       </Button>
       <Fade in={open}>
         <div id="example-fade-text">
-        <h1>Sobre Nosotros</h1>
+        <h1>About US!</h1>
+        <p>Welcome to GuitarStore's Stairway to Heaven, where music comes to life through exceptional guitars! We specialize in offering a carefully curated selection <br />
+of acoustic, electric, and classical guitars, along with premium accessories and equipment. Our team of musicians and experts is here <br />
+to guide and inspire every customer, from beginners to professionals.</p>
 
-<p>¡Bienvenidos a Quake guitar store, donde la música cobra vida a través de guitarras excepcionales! Nos especializamos en ofrecer una selección <br />
-cuidadosamente curada de guitarras acústicas, eléctricas y clásicas, junto con accesorios y equipos premium. Nuestro equipo de músicos y expertos está aquí <br />
-para guiar y inspirar a cada cliente, desde principiantes hasta profesionales.</p>
+Mission: <br />
 
-Misión: <br />
-
-Proveer a nuestros clientes guitarras y equipos de música de la más alta calidad, creando un ambiente acogedor y educativo que fomente la pasión y la creatividad musical.
+To provide our customers with the highest quality guitars and music equipment, creating a welcoming and educational environment that fosters musical passion and creativity.
 
 <br />
-Visión: <br />
 
-Ser reconocidos como el destino preferido por músicos en busca de excelencia en instrumentos y servicio al cliente, estableciendo un estándar de calidad y dedicación en la industria musical.
+Vision: <br />
 
-Contáctanos
-Estamos ubicados en Mall San FranderYMarilyn. Puedes visitarnos de lunes a sábado de 9am a 5pm, o contáctanos por teléfono al o por correo electrónico a jose@guitarstore. <br />
-¡Esperamos poder ayudarte a encontrar la guitarra perfecta para ti!
+To be recognized as the preferred destination for musicians seeking excellence in instruments and customer service, setting a standard of quality and dedication in the music industry.
+
+Contact Us <br />
+We are located in Mall San FranderYMarilyn. You can visit us Monday through Saturday from 9am to 5pm, or contact us by phone at 55555555 or by email at jose@guitarstore.com <br />
+We look forward to seeing you here where we have the perfect guitar for you!
+
+
+
         </div>
       </Fade>
     </>

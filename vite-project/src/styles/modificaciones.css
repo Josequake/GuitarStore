@@ -1,19 +1,91 @@
-.div{
-    background-image: url(/vite-project/src/assets/img/engranaje.avif);
-}
-.h2{
+
+.titulo {
     text-align: center;
-    text-decoration: underline;
-}
-.link{
-    color: white;
-}
-.button{
-    border-radius: 20px;
+    font-style: underline;
+    margin-bottom: 20px; /* Espacio bajo el título */
+    font-size: 55px; /* Tamaño de fuente del título */
+    color: #9f0101; /* Color del texto del título */
     background-color: black;
-    margin: 20px;
-    padding: 1% 1% 1% 1%;
-}
-.paragraph{
-    margin-right: 30%;
-}
+  }
+  .titulo2 {
+    text-align: center;
+    font-style: underline;
+    margin-bottom: 20px; /* Espacio bajo el título */
+    font-size: 35px; /* Tamaño de fuente del título */
+    color: rgb(255, 255, 255); /* Color del texto del título */
+    background-color: rgb(0, 0, 0);
+  
+  }
+  
+  /* Estilo para los botones */
+  .boton {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    margin-left: 15%;
+    background-color: blue; /* Fondo transparente */
+    color: white; /* Color del texto */
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px; /* Tamaño de fuente del botón */
+    border: 2px solid black; /* Borde negro de 2px */
+    border-radius: 20px; /* Borde redondeado */
+    cursor: pointer;
+    transition: background-color 0.5s, color 0.5s; /* Transición suave de color y fondo */
+  }
+  .botonpp {
+    background-image: url(/vite-project/src/assets/img/ephiphone.png);
+    display: inline-block;
+    padding: 50px 50px 50px 50px;
+    margin: 10px;
+    margin-left: 15%;
+    background-color: rgb(255, 255, 255); /* Fondo transparente */
+    color: blue; /* Color del texto */
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px; /* Tamaño de fuente del botón */
+    border: 2px solid black; /* Borde negro de 2px */
+    border-radius: 20px; /* Borde redondeado */
+    cursor: pointer;
+    transition: background-color 0.5s, color 0.5s; /* Transición suave de color y fondo */
+  }
+  
+  .boton:hover {
+    background-color: black; /* Color de fondo al pasar el ratón */
+    color: white; /* Color del texto al pasar el ratón */
+    
+  }
+  .botonpp:hover {
+    background-color: #9f0101; /* Color de fondo al pasar el ratón */
+    color: white; /* Color del texto al pasar el ratón */
+    
+  }
+  .link{
+    color: white;
+  }
+  .h3{
+
+    text-align: center;
+    font-style: underline;
+    margin-bottom: 20px; /* Espacio bajo el título */
+    font-size: 35px; /* Tamaño de fuente del título */
+    color: #9f0101; /* Color del texto del título */
+    background-color: rgb(131, 127, 127);
+  }
+  .inputregister{
+    justify-content: center;
+    align-items: center;
+  }
+  .table{
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: white;
+  }
+
+  .sign{
+    font-size: 40px;
+    font-weight: bold;
+    margin-right: 15px;
+    text-decoration: underline;
+    }

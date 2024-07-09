@@ -1,12 +1,18 @@
 import getP from '../services/products/getP';
 import React, { useState, useEffect } from 'react';
+import "bootstrap/dist/css/bootstrap.min.css";
+import background1 from '../assets/img/gibson.png'
+import background2 from '../assets/img/fender.png'
+import background3 from '../assets/img/jackson.png'
+import background4 from '../assets/img/epiphone.png'
+import '../styles/modificaciones.css'
 
 const PaginaPrincipalForm = () => {
   const [products, setProducts] = useState([]);
-  const [gibson, setGibson] = useState('gibson');
-  const [fender, setFender] = useState('fender');
-  const [jackson, setJackson] = useState('jackson');
-  const [epiphone, setEpiphone] = useState('epiphone');
+  const [gibson] = useState('gibson');
+  const [fender] = useState('fender');
+  const [jackson] = useState('jackson');
+  const [epiphone] = useState('epiphone');
   const [resultado, setResultado] = useState([]);
 
   const mostrarProducto = async () => {
@@ -32,29 +38,32 @@ const PaginaPrincipalForm = () => {
     mostrarProducto();
   }, []);
 
-  console.log(products);
-
   return (
     <div>
-      <h1>Bienvenido a Guitar Quake Store</h1>
-      <h2>no apto para mancos</h2>
-      <button onClick={() => validaInformacion(gibson)}>{gibson}</button>
-      <button onClick={() => validaInformacion(fender)}>{fender}</button>
-      <button onClick={() => validaInformacion(jackson)}>{jackson}</button>
-      <button onClick={() => validaInformacion(epiphone)}>{epiphone}</button>
-      <div>
-        {resultado.map((e, index) => (
-          <div key={index}>
-            <p>{e.brand}</p>
-            <p>{e.instrument}</p>
-            <p>{e.model}</p>
-            <p>{e.specifics}</p>
-            <p>{e.price}</p>
-            <p>
-              <img src={e.imagenUrl} style={{ width: '100px', height: 'auto' }} alt={e.brand} />
-            </p>
-          </div>
-        ))}
+      <div className='main'>
+        <h1 className='titulo'>GuitarStore's Stairway to Heaven</h1>
+        <h4 className='titulo2'>"Your journey to music heaven."</h4>
+        <button style={{backgroundImage:`url(${background1})`, backgroundSize: '100px', backgroundRepeat: 'no-repeat', backgroundPosition: 'center'}} onClick={() => validaInformacion(gibson)} className='botonpp' id={gibson}></button>
+        <button style={{backgroundImage:`url(${background2})`, backgroundSize: '100px', backgroundRepeat: 'no-repeat', backgroundPosition: 'center'}} onClick={() => validaInformacion(fender)} className='botonpp' id={fender}></button>
+        <button style={{backgroundImage:`url(${background3})`, backgroundSize: '100px', backgroundRepeat: 'no-repeat', backgroundPosition: 'center'}} onClick={() => validaInformacion(jackson)} className='botonpp' id={jackson}></button>
+        <button style={{backgroundImage:`url(${background4})`, backgroundSize: '100px', backgroundRepeat: 'no-repeat', backgroundPosition: 'center'}} onClick={() => validaInformacion(epiphone)} className='botonpp' id={epiphone}></button>
+        <div className='row col-md-14'>
+          {resultado.map((e, index) => (
+            <div key={index} className='col-md-2'>
+              <p>{e.brand}</p>
+              <p>{e.instrument}</p>
+              <p>{e.model}</p>
+              <p>{e.specifics}</p>
+              <p>{e.price}</p>
+              <p>
+                <img src={e.imagenUrl} style={{ width: '200px', height: '200px' }} alt={e.brand} />
+              </p>
+              <p>
+                <button className='boton'>comprar</button>
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

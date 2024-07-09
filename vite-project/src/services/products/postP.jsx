@@ -14,7 +14,7 @@ const postP = async (instrumento,marca,modelo,especificaciones,precio,imagen) =>
   
   try {
     await axios.post("http://localhost:3001/products", productData);
-    alert("intrumento ingresado con exito!")
+    
     
   } catch (error) {
     

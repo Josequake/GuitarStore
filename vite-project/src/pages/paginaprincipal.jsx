@@ -6,11 +6,17 @@ import Footerform from "../components/footerform";
 const paginaprincipal = () => {
   return (
     <div>
+      <div>
       <Navbarform />
+      </div>
+      <div>
       <Paginaprincipalform />
+      </div>
+      <div>
       <footer>
         <Footerform />
       </footer>
+      </div>
     </div>
   );
 };
