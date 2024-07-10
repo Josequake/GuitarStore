@@ -9,11 +9,12 @@ import AgregarU from '../pages/agregarU'
 import Pago from '../pages/pago'
 import BD from '../pages/BD'
 
+
 const Routing = () => {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<Paginaprincipal />} />
+      <Route path='/' element={<Paginaprincipal />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/modificaciones' element={<Modificaciones />} />

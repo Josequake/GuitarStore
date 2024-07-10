@@ -33,7 +33,7 @@ Vision: <br />
 To be recognized as the preferred destination for musicians seeking excellence in instruments and customer service, setting a standard of quality and dedication in the music industry.
 
 Contact Us <br />
-We are located in Mall San FranderYMarilyn. You can visit us Monday through Saturday from 9am to 5pm, or contact us by phone at 55555555 or by email at jose@guitarstore.com <br />
+We are located in Mall San FranderYMarilyn. You can visit us Monday through Saturday from 9am to 5pm, or contact us by phone at  <a href="https://wa.me/+50686514606?text=urlencodedtext">+50686514606</a> or by email at jose@guitarstore.com <br />
 We look forward to seeing you here where we have the perfect guitar for you!
 
 

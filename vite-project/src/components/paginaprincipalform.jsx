@@ -58,7 +58,7 @@ const PaginaPrincipalForm = () => {
               <p><b>Type:</b> {e.instrument}</p>
               <p><b>Model:</b> {e.model}</p>
               <p><b>Specfics:</b> {e.specifics}</p>
-              <p><b>Price:</b> {e.price}</p>
+              <p><b>Price ₡:</b> {e.price}</p>
               </div>
               
               <div className='col-md-7'>

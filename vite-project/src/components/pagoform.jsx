@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom for navigation
 import '../styles/modificaciones.css'; 
 
+
 const pagoform = () => {
   const [formData, setFormData] = useState({
     cardName: '',
@@ -47,10 +48,11 @@ const pagoform = () => {
 
   return (
     <div className="payment-form-container">
-      <h2 style={{ textAlign: 'center' }}>Payment Form</h2>
-      <div className="credit-card-icons">
-        {/* Credit card icons could be displayed here */}
-      </div>
+      
+      <h2 style={{ textAlign: 'center',marginTop:'20px' }}>Payment Form</h2>
+      <div >
+        <img src="../assets/img/tarjetas.png" style={{textAlign:'center'}}/>
+       </div>
       <form onSubmit={handleSubmit} className="payment-form">
         <div className="form-group">
           <label htmlFor="cardName">Name on the card:</label>
@@ -108,10 +110,10 @@ const pagoform = () => {
         <div style={{ textAlign: 'center', width: '100%' }}>
           <button type="submit" className="btn btn-success">Pay!</button>
         </div>
-        <div style={{ marginTop: '5px', width: '100%' }}>
+        <div style={{ textAlign: 'center',marginTop: '5px', width: '100%' }}>
           <button type="button" className="btn btn-danger" onClick={handleCancel}>Cancel!</button>
         </div>
-        <div style={{ marginTop: '5px', width: '100%' }}>
+        <div style={{ textAlign: 'center',marginTop: '5px', width: '100%' }}>
           <button className="btn btn-dark">
             <Link to="/" className='link'>Home</Link>
           </button>

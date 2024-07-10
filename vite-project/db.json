@@ -44,9 +44,9 @@
     },
     {
       "name": "alonso",
-      "email": "",
-      "password": "",
-      "range": "",
+      "email": "alonso@gmail.com",
+      "password": "alonso",
+      "range": "administrador",
       "id": "8915"
     },
     {
@@ -59,13 +59,13 @@
   ],
   "products": [
     {
-      "id": "21ce",
-      "instrument": "Guitarra electrica",
+      "instrument": "guitarra eletrica",
       "brand": "jackson",
-      "model": "RR",
-      "specifics": "color Azul obscuro",
-      "price": "300000",
-      "imagenUrl": "https://www.ardemadrid.com/37571-medium_default/jackson-js-rhoads-js32-satin-gray.jpg"
+      "model": "RRR",
+      "specifics": "collor blanco con negro",
+      "price": "350000",
+      "imageUrl": "https://makemusic.pe/wp-content/uploads/2024/04/EILOEBNH1-Guitarra-Electrica-Epiphone_0-300x300.jpg",
+      "id": "21ce"
     },
     {
       "id": "dfa8",
@@ -174,6 +174,15 @@
       "specifics": "color miel",
       "price": "150000",
       "imagenUrl": "https://masmusika.com/wp-content/uploads/img/p/I0708557-300x300.jpg?v=1670451588"
+    },
+    {
+      "id": "00cd",
+      "instrument": "guitarra electrica",
+      "brand": "jackson",
+      "model": "les paul",
+      "specifics": "color mierda",
+      "price": "400000",
+      "imagenUrl": "https://makemusic.pe/wp-content/uploads/2024/04/EILOEBNH1-Guitarra-Electrica-Epiphone_0-300x300.jpg"
     }
   ]
 }

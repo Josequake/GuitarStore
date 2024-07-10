@@ -13,11 +13,18 @@ import { Link } from "react-router-dom";
 
 
 const BDform = () => {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalIsOpen1, setModalIsOpen1] = useState(false);
+  const [modalIsOpen2, setModalIsOpen2] = useState(false);
   const [input1, setInput1] = useState('');
   const [input2, setInput2] = useState('');
   const [input3, setInput3] = useState('');
   const [input4, setInput4] = useState('');
+  const [input5, setInput5] = useState('');
+  const [input6, setInput6] = useState('');
+  const [input7, setInput7] = useState('');
+  const [input8, setInput8] = useState('');
+  const [input9, setInput9] = useState('');
+  const [input10, setInput10] = useState('');
   const [products, setProducts] = useState([]);
   const [users, setUsers] = useState([]);
   const [loadingProducts, setLoadingProducts] = useState(false);
@@ -54,110 +61,80 @@ const BDform = () => {
   const eliminarProducto = async (id) => {
     try {
       const result = await Swal.fire({
-        title: "Eliminar producto",
-        text: "Estás seguro que deseas borrar este producto?",
+        title: "Deleted product",
+        text: "Are you sure you want to delete this product?",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Si, Eliminar!",
-        cancelButtonText: "No, cancelar!",
+        confirmButtonText: "Sure, Eliminate!",
+        cancelButtonText: "No, cancel!",
       });
       
       if (result.isConfirmed) {
         await eliminarP(id);
         setProducts(products.filter(product => product.id !== id));
         Swal.fire({
-          title: "Eliminado!",
-          text: "El producto ha sido eliminado.",
+          title: "Deleted!",
+          text: "The product has been deleted.",
           icon: "success",
         });
       }
     } catch (error) {
-      console.error('Error al eliminar producto:', error);
-      Swal.fire("Error al eliminar producto");
+      console.error('Error deleting product:', error);
+      Swal.fire("Error deleting product");
     }
   };
 
   const eliminarUsuario = async (id) => {
     try {
       const result = await Swal.fire({
-        title: "Eliminar Usuario",
-        text: "Estás seguro que deseas borrar a este usuario?",
+        title: "Delete User",
+        text: "Are you sure that you to delete this user?",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Si, Eliminar!",
-        cancelButtonText: "No, cancelar!",
+        confirmButtonText: "Sure, Eliminate!",
+        cancelButtonText: "No, cancel!",
       });
 
       if (result.isConfirmed) {
         await eliminarU(id);
         setUsers(users.filter(user => user.id !== id));
         Swal.fire({
-          title: "Eliminado!",
-          text: "El usuario ha sido eliminado.",
+          title: "Deleted!",
+          text: "The user have been deleted.",
           icon: "success",
         });
       }
     } catch (error) {
-      console.error('Error al eliminar usuario:', error);
-      Swal.fire("Error al eliminar usuario");
-    }
-  };
-
-  const modificarProducto = async (id) => {
-    try {
-      const data = await getP();
-      const producto = data.find((p) => p.id === id);
-      if (producto) {
-        setProductoEncontrado(producto);
-      } else {
-        Swal.fire("No existe producto con ese ID");
-        setProductoEncontrado(null);
-      }
-    } catch (error) {
-      console.error("Error al obtener productos:", error);
-      Swal.fire("Error al obtener productos");
-    }
-  };
-  
-  const modificarUsuario = async (id) => {
-    try {
-      const data = await getU();
-      const usuario = data.find(u => u.id === id);
-      if (usuario) {
-        setUsuarioEncontrado(usuario);
-      } else {
-        Swal.fire("No existe usuario con ese ID");
-        setUsuarioEncontrado(null);
-      }
-    } catch (error) {
-      console.error("Error al obtener usuarios:", error);
+      console.error('Error deleting user:', error);
+      Swal.fire("Error deleting user");
     }
   };
   const actualizarProducto = async () => {
+    const valorId = localStorage.getItem('idProduct')
     try {
       const productData = {
-        instrumento: instrumento,
-        marca: marca,
-        modelo: modelo,
-        especificaciones: especificaciones,
-        precio: precio, 
-        imagenUrl: imagen,
+        instrument: input5,
+        brand: input6,
+        model: input7,
+        specifics: input8,
+        price: input9, 
+        imageUrl: input10,
       };
-      await putP(id, productData);
-      Swal.fire("Producto actualizado con éxito");
+      await putP(valorId, productData);
+      Swal.fire("Product updated successfully");
     } catch (error) {
-      console.error("Error al actualizar producto:", error);
-      Swal.fire("Error al actualizar producto");
+      console.error("Error updating product:", error);
+      Swal.fire("Error updating product");
     }
   };
 
   const actualizarUsuario = async () => {
     const valorId = localStorage.getItem('idUser')
-    console.log(valorId,input1,input2,input3,input4)
+    
     try {
       const userData = {
         name: input1,
@@ -167,10 +144,10 @@ const BDform = () => {
       };
       await putU(valorId, userData);
        
-      Swal.fire('Usuario actualizado con éxito');
+      Swal.fire('User successfully updated');
     } catch (error) {
-      console.error("Error al actualizar usuario:", error);
-      alert('Error al actualizar usuario');
+      console.error("Error updating user:", error);
+      alert('Error updating user');
     }
   };
 
@@ -180,6 +157,7 @@ const BDform = () => {
     // mostrarUsuario();
   }, []);
   const handleButtonClick = (id) => {
+    localStorage.setItem('idProduct',id)
     console.log(id)
     Swal.fire({
       title: 'Update?',
@@ -190,7 +168,7 @@ const BDform = () => {
       cancelButtonText: 'Cancel'
     }).then((result) => {
       if (result.isConfirmed) {
-        setModalIsOpen(true);
+        setModalIsOpen1(true);
       }
     });
   };
@@ -205,13 +183,14 @@ const BDform = () => {
       cancelButtonText: 'Cancel'
     }).then((result) => {
       if (result.isConfirmed) {
-        setModalIsOpen(true);
+        setModalIsOpen2(true);
       }
     });
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-  setModalIsOpen(false);
+  setModalIsOpen1(false);
+  setModalIsOpen2(false);
   };
 
   return (
@@ -291,10 +270,10 @@ const BDform = () => {
             <tbody>
               {users.map((user, index) => (
                 <tr key={index}>
-                  <td className='table'>{user.name}</td>
-                  <td className='table'>{user.email}</td>
-                  <td className='table'>{user.password}</td>
-                  <td className='table'>{user.range}</td>
+                  <td>{user.name}</td>
+                  <td>{user.email}</td>
+                  <td>{user.password}</td>
+                  <td>{user.range}</td>
                   <td><button className="btn btn-info" onClick={() => handleButtonClick2(user.id)}>Edit</button></td>
                   <td><button className="btn btn-danger" onClick={() => eliminarUsuario(user.id)}>Eliminate</button></td>               
                 </tr>
@@ -305,8 +284,76 @@ const BDform = () => {
         </div>
         
       ) : null}
+      <Modal isOpen={modalIsOpen1} onRequestClose={() => setModalIsOpen1(false)} contentLabel="Example Modal">
+        <h2>Product's data</h2>
+        <form onSubmit={handleSubmit}>
+          <div>
+            
+            <input
+              type="text"
+              value={input5}
+              onChange={(e) => setInput5(e.target.value)}
+              placeholder='type of instrument'
+              className="form-control"
+            />
+          </div>
+          <div>
+          
+            <input
+              type="text"
+              value={input6}
+              onChange={(e) => setInput6(e.target.value)}
+              placeholder='brand'
+              className="form-control"
+            />
+          </div>
+          <div>
+          
+            <input
+              type="text"
+              value={input7}
+              onChange={(e) => setInput7(e.target.value)}
+              placeholder='model'
+              className="form-control"
+            />
+          </div>
+          <div>
+          
+            <input
+              type="text"
+              value={input8}
+              onChange={(e) => setInput8(e.target.value)}
+              placeholder='specifics'
+              className="form-control"
+            />
+          </div>
+          <div>
+            
+            <input
+              type="text"
+              value={input9}
+              onChange={(e) => setInput9(e.target.value)}
+              placeholder='price'
+              className="form-control"
+            />
+          </div>
+          <div>
+            
+            <input
+              type="text"
+              value={input10}
+              onChange={(e) => setInput10(e.target.value)}
+              placeholder='image url'
+              className="form-control"
+            />
+          </div>
+          
+          <button className='btn btn-success' type="button" onClick={() => actualizarProducto()}>Update</button>
+          <button className='btn btn-danger' type="button" onClick={() => setModalIsOpen1(false)}>Go out</button>
+        </form>
+      </Modal>
       
-       <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} contentLabel="Example Modal">
+       <Modal isOpen={modalIsOpen2} onRequestClose={() => setModalIsOpen2(false)} contentLabel="Example Modal">
         <h2>User's data</h2>
         <form onSubmit={handleSubmit}>
           <div>
@@ -350,7 +397,7 @@ const BDform = () => {
             />
           </div>
           <button className='btn btn-success' type="button" onClick={() => actualizarUsuario()}>Update</button>
-          <button className='btn btn-danger' type="button" onClick={() => setModalIsOpen(false)}>Go out</button>
+          <button className='btn btn-danger' type="button" onClick={() => setModalIsOpen2(false)}>Go out</button>
         </form>
       </Modal>
 
