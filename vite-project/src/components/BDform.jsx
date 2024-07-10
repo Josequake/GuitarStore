@@ -7,8 +7,10 @@ import putP from '../services/products/putP';
 import putU from '../services/users/putU';
 import Swal from 'sweetalert2';
 import Modal from 'react-modal';
+import Table from 'react-bootstrap/Table';
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
-import background from '../assets/img/engranaje.avif';
+
 
 const BDform = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -154,14 +156,16 @@ const BDform = () => {
   };
 
   const actualizarUsuario = async () => {
+    const valorId = localStorage.getItem('idUser')
+    console.log(valorId,input1,input2,input3,input4)
     try {
       const userData = {
-        nombre: nombre,
-        correo: correo,
-        contra: contra,
-        rango: rango
+        name: input1,
+        email: input2,
+        password: input3,
+        range: input4
       };
-      const response = await putU(id, userData);
+      await putU(valorId, userData);
        
       Swal.fire('Usuario actualizado con éxito');
     } catch (error) {
@@ -178,12 +182,27 @@ const BDform = () => {
   const handleButtonClick = (id) => {
     console.log(id)
     Swal.fire({
-      title: 'Modificar usuario?',
-      text: 'Esta seguro que desea actualizar este usuario',
+      title: 'Update?',
+      text: 'Are you sure you want to update this product?',
       icon: 'info',
       showCancelButton: true,
-      confirmButtonText: 'Aceptar',
-      cancelButtonText: 'Cancelar'
+      confirmButtonText: 'Accept',
+      cancelButtonText: 'Cancel'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setModalIsOpen(true);
+      }
+    });
+  };
+  const handleButtonClick2 = (id) => {
+    localStorage.setItem('idUser',id)
+    Swal.fire({
+      title: 'Update?',
+      text: 'Are you sure you want to update this user?',
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonText: 'Accept',
+      cancelButtonText: 'Cancel'
     }).then((result) => {
       if (result.isConfirmed) {
         setModalIsOpen(true);
@@ -196,62 +215,77 @@ const BDform = () => {
   };
 
   return (
-    <div style={{backgroundImage: `url(${background})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat'}} >
-      <h1 className='titulo'>Base de datos</h1>
-      <button className="boton" onClick={mostrarProducto} disabled={loadingProducts}>
-        {loadingProducts ? 'Cargando Productos...' : 'Mostrar Productos'}
+    
+    <div className='container'  >
+      <h1 className='titulo'>Data base</h1>
+      <div className='row col-md-12'>
+        <div className='col-md-4' style={{textAlign: "center"}}>
+        <button className="boton"  onClick={mostrarProducto} disabled={loadingProducts}>
+        {loadingProducts ? 'Cargando Productos...' : 'Show Products'}
       </button>
-      <button className="boton" onClick={mostrarUsuario} disabled={loadingUsers}>
-        {loadingUsers ? 'Cargando Usuarios...' : 'Mostrar Usuarios'}
-      </button>
-      <button className='boton'><Link to="/" className='link' >Página Principal</Link></button>
+        </div>
+        <div className='col-md-4' style={{textAlign: "center"}}><button className='boton'><Link to="/" className='link' >Home</Link></button></div>
+        <div className='col-md-4' style={{textAlign: "center"}}><button className="boton" onClick={mostrarUsuario} disabled={loadingUsers}>
+        {loadingUsers ? 'Cargando Usuarios...' : 'Show Users'}
+      </button></div>
+      </div>
+     
+      
+      
+      
 
       {/* Sección de productos */}
       {productoEncontrado || products.length > 0 ? (
-        <div>
-          <h2 className='h3'>Productos:</h2>
-          <table border="5">
+        
+          <div className='row'>
+        <div className='col-md-12'>
+        
+          <h2 className='h3'>Products:</h2>
+          <Table striped bordered hover>
             <thead border="5">
               <tr border="5">
-                <th className='table'>ID</th>
-                <th className='table'>Tipo Instrumento</th>
-                <th className='table'>Marca</th>
-                <th className='table'>Modelo</th>
-                <th className='table'>Especificaciones</th>
-                <th className='table'>Precio</th>
+                <th >ID</th>
+                <th >Type of Instrument</th>
+                <th >Brand</th>
+                <th >Model</th>
+                <th >Specifics</th>
+                <th >Price</th>
                
               </tr>
             </thead>
             <tbody>
               {products.map((product, index) => (
                 <tr key={index}>
-                  <td className='table'>{product.id}</td>
-                  <td className='table'>{product.instrument}</td>
-                  <td className='table'>{product.brand}</td>
-                  <td className='table'>{product.model}</td>
-                  <td className='table'>{product.specifics}</td>
-                  <td className='table'>{product.price}</td>
-                  <td><button className="boton" onClick={() => modificarProducto(product.id)}>Modificar</button></td>
-                  <td><button className="boton" onClick={() => eliminarProducto(product.id)}>Eliminar</button></td>
-                  <td><button className="boton" onClick={() => actualizarProducto(product.id)}>Actualizar</button></td>
+                  <td>{product.id}</td>
+                  <td>{product.instrument}</td>
+                  <td>{product.brand}</td>
+                  <td>{product.model}</td>
+                  <td>{product.specifics}</td>
+                  <td>{product.price}</td>
+                  <td><button className="btn btn-info" onClick={() => handleButtonClick(product.id)}>Edit</button></td>
+                  <td><button className="btn btn-danger" onClick={() => eliminarProducto(product.id)}>Eliminate</button></td>
                 </tr>
               ))}
             </tbody>
-          </table>
+          </Table>
         </div>
+        </div>
+        
       ) : null}
 
       {/* Sección de usuarios */}
       {usuarioEncontrado || users.length > 0 ? (
-        <div>
-          <h2 className='h3'>Usuarios:</h2>
-          <table border="5">
+
+        <div className='row'>
+        <div className='col-md-12'>
+          <h2 className='h3'>Users:</h2>
+          <Table striped bordered hover>
             <thead border="5">
               <tr  border="5">
-                <th className='table'>Nombre</th>
-                <th className='table'>Correo</th>
-                <th className='table'>Contraseña</th>
-                <th className='table'>Rango</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Range</th>
               </tr>
             </thead>
             <tbody>
@@ -261,57 +295,62 @@ const BDform = () => {
                   <td className='table'>{user.email}</td>
                   <td className='table'>{user.password}</td>
                   <td className='table'>{user.range}</td>
-                  <td><button className="boton" onClick={() => handleButtonClick(user.id)}>Editar</button></td>
-                  <td><button className="boton" onClick={() => eliminarUsuario(user.id)}>Eliminar</button></td>
-                  <td><button className="boton" onClick={() => actualizarUsuario(user.id)}>Actualizar</button></td>                
+                  <td><button className="btn btn-info" onClick={() => handleButtonClick2(user.id)}>Edit</button></td>
+                  <td><button className="btn btn-danger" onClick={() => eliminarUsuario(user.id)}>Eliminate</button></td>               
                 </tr>
               ))}
             </tbody>
-          </table>
+          </Table>
         </div>
+        </div>
+        
       ) : null}
       
        <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} contentLabel="Example Modal">
-        <h2>Formulario en el Modal</h2>
+        <h2>User's data</h2>
         <form onSubmit={handleSubmit}>
           <div>
-            <label>Nombre:</label>
+            
             <input
               type="text"
               value={input1}
               onChange={(e) => setInput1(e.target.value)}
-              placeholder='nombre'
+              placeholder='name'
+              className="form-control"
             />
           </div>
           <div>
-          <label>Correo:</label>
+          
             <input
               type="text"
               value={input2}
               onChange={(e) => setInput2(e.target.value)}
-              placeholder='correo'
+              placeholder='email'
+              className="form-control"
             />
           </div>
           <div>
-          <label>Contrasena:</label>
+          
             <input
               type="text"
               value={input3}
               onChange={(e) => setInput3(e.target.value)}
-              placeholder='contrasena'
+              placeholder='password'
+              className="form-control"
             />
           </div>
           <div>
-          <label>Rango:</label>
+          
             <input
               type="text"
               value={input4}
               onChange={(e) => setInput4(e.target.value)}
-              placeholder='rango'
+              placeholder='range'
+              className="form-control"
             />
           </div>
-          <button className='boton' type="submit">Actualizar</button>
-          <button className='boton' type="button" onClick={() => setModalIsOpen(false)}>Salir</button>
+          <button className='btn btn-success' type="button" onClick={() => actualizarUsuario()}>Update</button>
+          <button className='btn btn-danger' type="button" onClick={() => setModalIsOpen(false)}>Go out</button>
         </form>
       </Modal>
 

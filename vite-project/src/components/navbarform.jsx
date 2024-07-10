@@ -7,13 +7,18 @@ import GetU from '../services/users/getU';
 import background from '../assets/img/cielo.png';
 
 function Navbarform() {
-  const [usuarioLogueado, setUsuarioLogueado] = useState('');
-
-  const fetchUsuarioLogueado = async () => {
+  const [usuarioSi, setUsuarioSi] = useState('');
+  const [userlog, setUserlog] = useState('');
+  const [userr, setUserr] = useState('');
+  const UsuarioLogueado = async () => {
     try {
       const response = await GetU(); 
+      
       if (response && response.name) {
-        setUsuarioLogueado(response.name);
+        setUsuarioSi(response.name);
+        setUserlog(localStorage.setItem(usuarioSi));
+        setUserr(localStorage.getItem(usuarioSi))
+
       }
     } catch (error) {
       console.error('Error al obtener el usuario logueado:', error);
@@ -21,7 +26,7 @@ function Navbarform() {
   };
 
   useEffect(() => {
-    fetchUsuarioLogueado();
+    UsuarioLogueado();
   }, []);
 
   return (
@@ -37,11 +42,11 @@ function Navbarform() {
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
             <h1 className="sign">Welcome to guitar paradise!</h1>
-            {usuarioLogueado ? (
-              <p>{usuarioLogueado}</p>
-            ) : (
-              <p>Usuario no logueado</p>
-            )}
+            <div>
+              {userlog && 
+                <p>{userr}</p>
+              }
+            </div>
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>

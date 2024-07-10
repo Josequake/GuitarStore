@@ -8,11 +8,11 @@
       "range": "administrator"
     },
     {
-      "id": "d7b3",
-      "name": "andres",
-      "email": "marylin@noviadefrander.com",
-      "password": "qwerty",
-      "range": ""
+      "name": "frander",
+      "email": "frander@frander.com",
+      "password": "frander",
+      "range": "adminitrador",
+      "id": "d7b3"
     },
     {
       "id": "8d78",
@@ -41,6 +41,20 @@
       "email": "marylin@noviadefrander.com\t",
       "password": "zxcvbn",
       "range": "administrador"
+    },
+    {
+      "name": "alonso",
+      "email": "",
+      "password": "",
+      "range": "",
+      "id": "8915"
+    },
+    {
+      "id": "ceb5",
+      "name": "quaky",
+      "email": "quaky@gmail.com",
+      "password": "asdfgh",
+      "range": ""
     }
   ],
   "products": [
@@ -87,16 +101,16 @@
       "model": "Les paul",
       "specifics": "Color Miel",
       "price": "750000",
-      "imagenUrl": "https://e7.pngegg.com/pngimages/434/321/png-clipart-gibson-les-paul-custom-gibson-brands-inc-guitar-gibson-les-paul-standard-guitar-guitar-accessory-string-instrument-thumbnail.png"
+      "imagenUrl": "https://easymusiccenter.com/cdn/shop/files/GibsonLPSKH00GGNH1KirkHammett_Greeny_LesPaulStandard-GreenyBurst-1_300x300.png?v=1701500830"
     },
     {
       "id": "f2d0",
       "instrument": "Guitarra electrica",
       "brand": "gibson",
       "model": "les paul",
-      "specifics": "Color Blanca",
+      "specifics": "Color Negro con blanco",
       "price": "850000",
-      "imagenUrl": "https://e7.pngegg.com/pngimages/454/565/png-clipart-solid-body-electric-guitar-gibson-les-paul-custom-electric-guitar-thumbnail.png"
+      "imagenUrl": "https://api.devmusicalindia.in/assets_thumbnail/1565249111299-Gibson,%20Electric%20Guitar,%20Les%20Paul%2060's%20Tribute%202016%20-Satin%20Ebony%20LPST60TSECH1.jpg"
     },
     {
       "id": "395e",
@@ -105,7 +119,7 @@
       "model": "SG",
       "specifics": "Color vino",
       "price": "550000",
-      "imagenUrl": "https://e7.pngegg.com/pngimages/942/327/png-clipart-brown-red-and-black-gibson-sg-electric-guitar-gibson-les-paul-gibson-sg-special-guitar-gibson-brands-inc-guitar-guitar-accessory-string-instrument-thumbnail.png"
+      "imagenUrl": "https://aymaraperu.com.pe/wp-content/uploads/2023/09/EPIPHONE-EISS61VCNH1-SG-STANDARD-60S-VINTAGE-CHERRY_11zon-300x300.webp"
     },
     {
       "id": "24a5",
@@ -114,16 +128,16 @@
       "model": "Flying V",
       "specifics": "Color Negro con blanco",
       "price": "350000",
-      "imagenUrl": "https://e7.pngegg.com/pngimages/162/879/png-clipart-black-and-grey-electric-guitar-illustration-gibson-flying-v-gibson-explorer-gibson-les-paul-guitar-gibson-firebird-black-electric-guitar-black-hair-black-white-thumbnail.png"
+      "imagenUrl": "https://easymusiccenter.com/cdn/shop/products/EpiphoneEIFVEBNH1FlyingV-Ebony_300x300.jpg?v=1660047802"
     },
     {
       "id": "af5c",
       "instrument": "Guitarra electrica",
       "brand": "gibson",
       "model": "Explorer",
-      "specifics": "Color Negro cocon blanco",
+      "specifics": "Color Verde cocon blanco",
       "price": "650000",
-      "imagenUrl": "https://e1.pngegg.com/pngimages/342/388/png-clipart-guitars-black-and-white-gibson-electric-guitar-thumbnail.png"
+      "imagenUrl": "https://guitarworks.ca/cdn/shop/products/ujnu2rxxibacrnuugruk_300x.jpg?v=1696013247"
     },
     {
       "id": "8fee",
@@ -151,6 +165,15 @@
       "specifics": "color Negro",
       "price": "500000",
       "imagenUrl": "https://www.musicianscart.com/wp-content/uploads/nc/j/s/js22dksbk-large1-300x300.jpg"
+    },
+    {
+      "id": "b08d",
+      "instrument": "Guitarra acustica",
+      "brand": "epiphone",
+      "model": "epiphone",
+      "specifics": "color miel",
+      "price": "150000",
+      "imagenUrl": "https://masmusika.com/wp-content/uploads/img/p/I0708557-300x300.jpg?v=1670451588"
     }
   ]
 }

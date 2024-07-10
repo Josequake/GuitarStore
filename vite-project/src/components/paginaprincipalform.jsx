@@ -1,6 +1,7 @@
 import getP from '../services/products/getP';
 import React, { useState, useEffect } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from 'react-router-dom';
 import background1 from '../assets/img/gibson.png'
 import background2 from '../assets/img/fender.png'
 import background3 from '../assets/img/jackson.png'
@@ -47,20 +48,26 @@ const PaginaPrincipalForm = () => {
         <button style={{backgroundImage:`url(${background2})`, backgroundSize: '100px', backgroundRepeat: 'no-repeat', backgroundPosition: 'center'}} onClick={() => validaInformacion(fender)} className='botonpp' id={fender}></button>
         <button style={{backgroundImage:`url(${background3})`, backgroundSize: '100px', backgroundRepeat: 'no-repeat', backgroundPosition: 'center'}} onClick={() => validaInformacion(jackson)} className='botonpp' id={jackson}></button>
         <button style={{backgroundImage:`url(${background4})`, backgroundSize: '100px', backgroundRepeat: 'no-repeat', backgroundPosition: 'center'}} onClick={() => validaInformacion(epiphone)} className='botonpp' id={epiphone}></button>
-        <div className='row col-md-14'>
+        <div className='row col-md-12'>
           {resultado.map((e, index) => (
-            <div key={index} className='col-md-2'>
-              <p>{e.brand}</p>
-              <p>{e.instrument}</p>
-              <p>{e.model}</p>
-              <p>{e.specifics}</p>
-              <p>{e.price}</p>
-              <p>
+            
+            <div key={index} className='col-md-4'>
+              <div className='col-md-12 row'>
+              <div className='col-md-5'>
+              <p><b>Brand:</b> {e.brand}</p>
+              <p><b>Type:</b> {e.instrument}</p>
+              <p><b>Model:</b> {e.model}</p>
+              <p><b>Specfics:</b> {e.specifics}</p>
+              <p><b>Price:</b> {e.price}</p>
+              </div>
+              
+              <div className='col-md-7'>
                 <img src={e.imagenUrl} style={{ width: '200px', height: '200px' }} alt={e.brand} />
-              </p>
+              </div>
               <p>
-                <button className='boton'>comprar</button>
+                <button className='btn btn-success'><Link to='/pago' className='link'>Buy it!</Link></button>
               </p>
+              </div>
             </div>
           ))}
         </div>

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import PostU from "../services/users/postU";
 import Swal from "sweetalert2";
-import background from "../assets/img/engranaje.avif";
 import getU from '../services/users/getU';
 
 const agregarUform = () => {
@@ -56,59 +55,52 @@ const agregarUform = () => {
   };
 
   return (
-    <div
-      className="content"
-      style={{
-        backgroundImage: `url(${background})`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
-      <h1 className="titulo">Registro de Admin</h1>
-      <h3 className="h3">Ingrese el nombre del Admin</h3>
+    <div className="container" style={{border:'1px solid black',borderRadius:'7px'}}>
+      <h1 className="titulo">Admin register</h1>
+      
       <input
         type="text"
         id="nombre"
         name="nombre"
         value={nombre}
         onChange={(e) => setNombre(e.target.value)}
-        placeholder="Nombre"
-        className="inputregister"
+        placeholder="name"
+        className="form-control"
       />
-      <h3 className="h3">Correo del Administrador</h3>
+      
       <input
         type="text"
         id="correo"
         name="correo"
         value={correo}
         onChange={(e) => setCorreo(e.target.value)}
-        placeholder="Correo"
-        className="inputregister"
+        placeholder="email"
+        className="form-control"
       />
-      <h3 className="h3">Contrasena del administrador</h3>
+      
       <input
         type="password"
         id="contra"
         name="contra"
         value={contra}
         onChange={(e) => setContra(e.target.value)}
-        placeholder="Contraseña"
-        className="inputregister"
+        placeholder="password"
+        className="form-control"
       />
-      <h3 className="h3">Rango del administrador</h3>
+      
       <input
         type="text"
         id="rango"
         name="rango"
         value={rango}
         onChange={(e) => setRango(e.target.value)}
-        placeholder="rango"
-        className="inputregister"
+        placeholder="range"
+        className="form-control"
       />
-      <button className="boton" onClick={agregarAdmin}>Agregar Admin</button>
+      <button className="btn btn-success" onClick={agregarAdmin}>Add Admin</button>
       
       <h6>
-        <button className="boton"><Link to="/" className="link">Página Principal</Link></button>
+        <button className="btn btn-dark" style={{marginTop:'5px'}}><Link to="/" className="link">Home</Link></button>
       </h6>
     </div>
   );

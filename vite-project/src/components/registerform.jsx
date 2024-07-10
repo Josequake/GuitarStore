@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import PostUregister from "../services/users/postUregister";
 import Swal from "sweetalert2";
-import background from "../assets/img/engranaje.avif";
-import getU from '../services/users/getU';
+import getU from "../services/users/getU";
 
-const registerForm = () => {
+const RegisterForm = () => {
   const [users, setUsers] = useState([]);
   const [nombre, setNombre] = useState("");
   const [correo, setCorreo] = useState("");
-  const [contra, setContra] = useState("");
+  const [contra, setContra] = useState("")
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -26,83 +25,92 @@ const registerForm = () => {
   const agregarUsuario = async () => {
     try {
       if (nombre === "" || correo === "" || contra === "") {
-        Swal.fire("Por favor rellene todos los espacios");
+        Swal.fire("Please fill all fields");
         return;
       }
 
-      // Verificar si el correo ya está registrado
-      const correoRegistrado = users.find(user => user.email === correo);
+      // Check if email is already registered
+      const correoRegistrado = users.find((user) => user.email === correo);
       if (correoRegistrado) {
-        Swal.fire("Este correo ya está registrado");
+        Swal.fire("This email is already registered");
         return;
       }
 
-      // Si el correo no está registrado, procedemos a registrar al usuario
+      // Register user if email is not registered
       await PostUregister(nombre, correo, contra);
-      Swal.fire("Usuario ingresado con éxito!");
+      Swal.fire("User registered successfully!");
       setNombre("");
       setCorreo("");
       setContra("");
 
-      // Actualizar la lista de usuarios después de registrar uno nuevo
+      // Update the list of users after registering a new one
       const updatedUsers = [...users, { nombre, correo, contra }];
       setUsers(updatedUsers);
-
     } catch (error) {
-      alert("Error al agregar usuario: " + error.message);
+      alert("Error adding user: " + error.message);
     }
   };
 
   return (
-    <div
-      className="content"
-      style={{
-        backgroundImage: `url(${background})`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
-      <h1 className="titulo">Registro de Usuario</h1>
-      <h3 className="h3">Ingrese el nombre del usuario</h3>
-      <input
-        type="text"
-        id="nombre"
-        name="nombre"
-        value={nombre}
-        onChange={(e) => setNombre(e.target.value)}
-        placeholder="Nombre"
-        className="inputregister"
-      />
-      <h3 className="h3">Ingrese el correo del usuario</h3>
-      <input
-        type="text"
-        id="correo"
-        name="correo"
-        value={correo}
-        onChange={(e) => setCorreo(e.target.value)}
-        placeholder="Correo"
-        className="inputregister"
-      />
-      <h3 className="h3">Ingrese la contraseña del usuario</h3>
-      <input
-        type="password"
-        id="contra"
-        name="contra"
-        value={contra}
-        onChange={(e) => setContra(e.target.value)}
-        placeholder="Contraseña"
-        className="inputregister"
-      />
-      <button className="boton" onClick={agregarUsuario}>Registrarse</button>
-      <h6>
-        ¿Ya tienes una cuenta? 
-        <button className="boton"><Link to="/login" className="link">Inicia sesión</Link></button>
-      </h6>
-      <h6>
-        <button className="boton"><Link to="/" className="link">Página Principal</Link></button>
-      </h6>
+    <div className="container">
+      <div className="row">
+        <div className="col-md-4"></div>
+        <div className="col-md-4" style={{ border: '1px solid black', borderRadius: '7px', padding: '20px' }}>
+          <h1 className="titulo">User Register</h1>
+
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            value={nombre}
+            onChange={(e) => setNombre(e.target.value)}
+            placeholder="Name"
+            className="form-control"
+          />
+
+          <input
+            type="text"
+            id="correo"
+            name="correo"
+            value={correo}
+            onChange={(e) => setCorreo(e.target.value)}
+            placeholder="Email"
+            className="form-control"
+          />
+
+          <input
+            type="password"
+            id="contra"
+            name="contra"
+            value={contra}
+            onChange={(e) => setContra(e.target.value)}
+            placeholder="Password"
+            className="form-control"
+          />
+
+          <div style={{ textAlign: 'center', marginTop: '15px' }}>
+            <button className="btn btn-success" onClick={agregarUsuario}>
+              Sign up
+            </button>
+          </div>
+          <p>If you already have an account</p>
+          <div className="row">
+            <div className="col-md-6">
+              <button className="btn btn-info" style={{textAlign:'left'}}>
+                <Link to="/login" className="link">
+                  Sign in
+                </Link>
+              </button>
+            </div>
+            <div className="col-md-6" style={{textAlign:'right'}}>
+              <button className="btn btn-dark" style={{marginTop:'5px'}}><Link to="/" className="link">Home</Link>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default registerForm;
+export default RegisterForm;

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PostP from '../services/products/postP';
 import Swal from 'sweetalert2'
 import '../styles/modificaciones.css'
-import background from '../assets/img/engranaje.avif'
+
 
 const agregarPform = () => {
   
@@ -18,7 +18,7 @@ const agregarPform = () => {
   const agregarProducto = async () => {
     try {
       await PostP(instrumento,marca,modelo,especificaciones,precio,imagen)
-      Swal.fire("Producto ingresado con exito!");
+      Swal.fire("Product entered successfully!");
       setInstrumento("")
       setMarca("")
       setModelo("")
@@ -26,7 +26,7 @@ const agregarPform = () => {
       setPrecio("")
       setImagen("")
     } catch (error) {
-      alert('Error al agregar instrumento: ' + error.message);
+      alert('Error to add thje instrument: ' + error.message);
       
     }
       
@@ -39,63 +39,77 @@ const agregarPform = () => {
   };
   
   return (
-    <div style={{backgroundImage: `url(${background})`,backgroundSize: 'cover',backgroundRepeat: 'no-repeat'}}>
+    <div className='container' style={{border:'1px solid black',borderRadius:'7px'}}>
       <h1 className="titulo">
-        Si desea ingresar un instrumento <br />
-        rellene todos los espacios
+        If you want to add an instrument <br />
+        please fill the whole spaces
       </h1>
-      <h3 className='h3'>Ingrese el tipo de instrumento</h3>
+      
       <input
         type="text"
         name="instrumento"
         id="instrumento"
         value={instrumento}
-        onChange={(e) => setInstrumento(e.target.value)} placeholder='tipo de instrumento'
+        onChange={(e) => setInstrumento(e.target.value)} 
+        placeholder='type of instrument'
+        className="form-control"
       />
-      <h3 className='h3'>Ingrese la marca del instrumento</h3>
+      
       <input
         type="text"
         name="marca"
         id="marca"
         value={marca}
-        onChange={(e) => setMarca(e.target.value)} placeholder='marca'
+        onChange={(e) => setMarca(e.target.value)} 
+        placeholder='brand'
+        className="form-control"
       />
-      <h3 className='h3'>Ingrese el modelo del instrumento</h3>
+      
       <input
         type="text"
         name="modelo"
         id="modelo"
         value={modelo}
-        onChange={(e) => setModelo(e.target.value)} placeholder='modelo'
+        onChange={(e) => setModelo(e.target.value)} 
+        placeholder='model'
+        className="form-control"
       />
-      <h3 className='h3'>Ingrese las especificaciones del instrumento</h3>
+      
       <input
         type="text"
         name="especificaciones"
         id="especificaciones"
         value={especificaciones}
-        onChange={(e) => setEspecificaciones(e.target.value)} placeholder='especificaciones'
+        onChange={(e) => setEspecificaciones(e.target.value)}
+        placeholder='specifics'
+        className="form-control"
       />
-      <h3 className='h3'>Ingrese el precio del instrumento</h3>
+      
       <input
         type="text"
         name="precio"
         id="precio"
         value={precio}
-        onChange={(e) => setPrecio(e.target.value)} placeholder='precio'
+        onChange={(e) => setPrecio(e.target.value)} 
+        placeholder='price'
+        className="form-control"
       />
-      <h3 className='h3'>Ingrese la URL imagen del instrumento</h3>
+      
       <input
         type="text"
         name="imagen"
         id="imagen"
         value={imagen}
-        onChange={(e) => setImagen(e.target.value)}placeholder='URL de la imagen'
+        onChange={(e) => setImagen(e.target.value)}
+        placeholder='image URL'
+        className="form-control"
       />
-      <p>
-      <button className="boton" onClick={agregarProducto}>Ingresar</button>
-      </p>
-      <button className='boton'><Link to="/" className='link'>Página Principal</Link></button>
+      <div>
+      <button className="btn btn-success" onClick={agregarProducto}>Add Instrument</button>
+      </div>
+      <div>
+      <button className='btn btn-dark' style={{marginTop:'5px'}}><Link to="/" className='link'>Home</Link></button>
+      </div>
     </div>
   );
 };

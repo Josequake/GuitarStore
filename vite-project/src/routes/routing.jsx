@@ -6,7 +6,7 @@ import Paginaprincipal from '../pages/paginaprincipal'
 import Modificaciones from '../pages/modificaciones'
 import AgregarP from '../pages/agregarP'
 import AgregarU from '../pages/agregarU'
-
+import Pago from '../pages/pago'
 import BD from '../pages/BD'
 
 const Routing = () => {
@@ -20,6 +20,7 @@ const Routing = () => {
         <Route path='/agregarP' element={<AgregarP/>} />
         <Route path='/agregarU' element={<AgregarU/>} />
         <Route path='/BD' element={<BD/>} />
+        <Route path='/pago' element={<Pago/>} />
       </Routes>
     </Router>
   );
