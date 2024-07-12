@@ -1,3 +1,6 @@
+// Componente para gestionar la base de datos de productos y usuarios.
+
+
 import React, { useState, useEffect } from 'react';
 import getP from '../services/products/getP';
 import getU from '../services/users/getU';
@@ -11,8 +14,9 @@ import Table from 'react-bootstrap/Table';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 
-
+// Funcion principal
 const BDform = () => {
+  // Estados para controlar la apertura de modales y los inputs de los formularios modales.
   const [modalIsOpen1, setModalIsOpen1] = useState(false);
   const [modalIsOpen2, setModalIsOpen2] = useState(false);
   const [input1, setInput1] = useState('');
@@ -32,11 +36,13 @@ const BDform = () => {
   const [productoEncontrado, setProductoEncontrado] = useState(null);
   const [usuarioEncontrado, setUsuarioEncontrado] = useState(null);
 
+  // Función para mostrar la lista de productos.
   const mostrarProducto = async () => {
     setLoadingProducts(true);
     try {
+      // Obtiene la lista de productos.
       const responseP = await getP();
-      setProducts(responseP); 
+      setProducts(responseP); // Actualiza el estado con la lista de productos obtenida.
     } catch (error) {
       console.error('Error al mostrar productos:', error);
       Swal.fire("Error al mostrar productos");
@@ -45,11 +51,13 @@ const BDform = () => {
     }
   };
 
+  // Función para mostrar la lista de usuarios.
   const mostrarUsuario = async () => {
     setLoadingUsers(true);
     try {
+      // Obtiene la lista de usuarios.
       const responseU = await getU();
-      setUsers(responseU); 
+      setUsers(responseU); // Actualiza el estado con la lista de usuarios obtenida.
     } catch (error) {
       console.error('Error al mostrar usuarios:', error);
       Swal.fire("Error al mostrar usuarios");
@@ -57,7 +65,7 @@ const BDform = () => {
       setLoadingUsers(false);
     }
   };
-
+ // Función para eliminar un producto por su ID.
   const eliminarProducto = async (id) => {
     try {
       const result = await Swal.fire({
@@ -72,8 +80,8 @@ const BDform = () => {
       });
       
       if (result.isConfirmed) {
-        await eliminarP(id);
-        setProducts(products.filter(product => product.id !== id));
+        await eliminarP(id);// Llama a la función para eliminar el producto.
+        setProducts(products.filter(product => product.id !== id));// Actualiza la lista de productos en el estado local.
         Swal.fire({
           title: "Deleted!",
           text: "The product has been deleted.",
@@ -85,7 +93,7 @@ const BDform = () => {
       Swal.fire("Error deleting product");
     }
   };
-
+// Función para eliminar un usuario por su ID.
   const eliminarUsuario = async (id) => {
     try {
       const result = await Swal.fire({
@@ -100,8 +108,8 @@ const BDform = () => {
       });
 
       if (result.isConfirmed) {
-        await eliminarU(id);
-        setUsers(users.filter(user => user.id !== id));
+        await eliminarU(id);// Llama a la función para eliminar el usuario.
+        setUsers(users.filter(user => user.id !== id)); // Actualiza la lista de usuarios en el estado local.
         Swal.fire({
           title: "Deleted!",
           text: "The user have been deleted.",
@@ -113,6 +121,7 @@ const BDform = () => {
       Swal.fire("Error deleting user");
     }
   };
+   // Función para actualizar un producto.
   const actualizarProducto = async () => {
     const valorId = localStorage.getItem('idProduct')
     try {
@@ -122,7 +131,7 @@ const BDform = () => {
         model: input7,
         specifics: input8,
         price: input9, 
-        imageUrl: input10,
+        imagenUrl: input10,
       };
       await putP(valorId, productData);
       Swal.fire("Product updated successfully");
@@ -131,7 +140,7 @@ const BDform = () => {
       Swal.fire("Error updating product");
     }
   };
-
+ // Función para actualizar un usuario.
   const actualizarUsuario = async () => {
     const valorId = localStorage.getItem('idUser')
     
@@ -142,7 +151,7 @@ const BDform = () => {
         password: input3,
         range: input4
       };
-      await putU(valorId, userData);
+      await putU(valorId, userData);// Llama a la función para actualizar el usuario.
        
       Swal.fire('User successfully updated');
     } catch (error) {
@@ -152,10 +161,9 @@ const BDform = () => {
   };
 
   useEffect(() => {
-    // No se hace ninguna llamada inicial aquí para evitar la carga automática
-    // mostrarProducto();
-    // mostrarUsuario();
+    
   }, []);
+  // Función para manejar el clic en el botón de actualizar producto.
   const handleButtonClick = (id) => {
     localStorage.setItem('idProduct',id)
     console.log(id)
@@ -168,10 +176,11 @@ const BDform = () => {
       cancelButtonText: 'Cancel'
     }).then((result) => {
       if (result.isConfirmed) {
-        setModalIsOpen1(true);
+        setModalIsOpen1(true); // Abre el modal para actualizar producto.
       }
     });
   };
+  // Función para manejar el clic en el botón de actualizar usuario.
   const handleButtonClick2 = (id) => {
     localStorage.setItem('idUser',id)
     Swal.fire({
@@ -183,20 +192,23 @@ const BDform = () => {
       cancelButtonText: 'Cancel'
     }).then((result) => {
       if (result.isConfirmed) {
-        setModalIsOpen2(true);
+        setModalIsOpen2(true); // Abre el modal para actualizar usuario.
       }
     });
   };
+  // Función para manejar el envío del formulario modal.
   const handleSubmit = (event) => {
     event.preventDefault();
-  setModalIsOpen1(false);
-  setModalIsOpen2(false);
+  setModalIsOpen1(false); // Cierra el modal de actualizar producto.
+  setModalIsOpen2(false); // Cierra el modal de actualizar usuario
   };
 
   return (
     
-    <div className='container'  >
+    <div className="container"
+    style={{ border: "1px solid black", borderRadius: "7px" }}>
       <h1 className='titulo'>Data base</h1>
+      {/* Botones para mostrar productos y usuarios poder devolverse a la pagina principal (Home) */}
       <div className='row col-md-12'>
         <div className='col-md-4' style={{textAlign: "center"}}>
         <button className="boton"  onClick={mostrarProducto} disabled={loadingProducts}>

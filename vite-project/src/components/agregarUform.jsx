@@ -1,10 +1,14 @@
+// Componente para registrar un nuevo administrador.
+
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import PostU from "../services/users/postU";
 import Swal from "sweetalert2";
 import getU from '../services/users/getU';
 
+//Funcion principal
 const agregarUform = () => {
+  // Estado para almacenar la lista de usuarios.
   const [users, setUsers] = useState([]);
   const [nombre, setNombre] = useState("");
   const [correo, setCorreo] = useState("");
@@ -14,43 +18,46 @@ const agregarUform = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
+        // Realiza una solicitud GET para obtener la lista de usuarios.
         const response = await getU();
-        setUsers(response);
+        setUsers(response);// Actualiza el estado con la lista de usuarios obtenida.
       } catch (error) {
         console.error("Error fetching users:", error);
       }
     };
-    fetchUsers();
+    fetchUsers();  // Llama a la función para obtener usuarios al cargar el componente.
   }, []);
 
   const agregarAdmin = async () => {
     try {
+      // Verifica que todos los campos estén llenos antes de proceder
       if (nombre === "" || correo === "" || contra === "" || rango === "") {
-        Swal.fire("Por favor rellene todos los espacios");
+        Swal.fire("Please fill in all the spaces");
         return;
       }
 
-      
+      // Verifica si el correo ya está registrado en la lista de usuarios.
       const correoRegistrado = users.find(user => user.email === correo);
       if (correoRegistrado) {
-        Swal.fire("Este correo ya está registrado");
+        Swal.fire("This email is already registered");
         return;
       }
 
-     
+     // Realiza una solicitud POST para agregar el nuevo usuario administrador.
       await PostU(nombre, correo, contra, rango);
-      Swal.fire("Usuario ingresado con éxito!");
+      Swal.fire("User logged in successfully!");// Muestra una alerta de éxito utilizando SweetAlert2.
+      // Limpia los campos del formulario después de agregar el usuario.
       setNombre("");
       setCorreo("");
       setContra("");
       setRango("");
 
-      
+      // Actualiza la lista de usuarios en el estado local.
       const updatedUsers = [...users, { nombre, correo, contra, rango }];
       setUsers(updatedUsers);
 
     } catch (error) {
-      alert("Error al agregar usuario: " + error.message);
+      alert("Error adding user: " + error.message);
     }
   };
 

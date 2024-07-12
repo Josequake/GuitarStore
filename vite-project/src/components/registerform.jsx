@@ -29,21 +29,21 @@ const RegisterForm = () => {
         return;
       }
 
-      // Check if email is already registered
+      // Comprueba si el correo electrónico ya está registrado
       const correoRegistrado = users.find((user) => user.email === correo);
       if (correoRegistrado) {
         Swal.fire("This email is already registered");
         return;
       }
 
-      // Register user if email is not registered
+      // Registrar usuario si el correo electrónico no está registrado
       await PostUregister(nombre, correo, contra);
       Swal.fire("User registered successfully!");
       setNombre("");
       setCorreo("");
       setContra("");
 
-      // Update the list of users after registering a new one
+      // Actualizar la lista de usuarios después de registrar uno nuevo
       const updatedUsers = [...users, { nombre, correo, contra }];
       setUsers(updatedUsers);
     } catch (error) {

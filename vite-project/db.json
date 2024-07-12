@@ -15,31 +15,10 @@
       "id": "d7b3"
     },
     {
-      "id": "8d78",
-      "name": "osopeludo",
-      "email": "marylin@noviadefrander.com",
-      "password": "qwerty",
-      "range": "administrador"
-    },
-    {
       "id": "4898",
       "name": "alfonso",
       "email": "jose@guitarstore.com",
       "password": "asdfgh",
-      "range": "administrador"
-    },
-    {
-      "id": "5522",
-      "name": "caballomanso",
-      "email": "marylin@noviadefrander.com",
-      "password": "zxcvbn",
-      "range": "administrador"
-    },
-    {
-      "id": "b3ce",
-      "name": "alfonso",
-      "email": "marylin@noviadefrander.com\t",
-      "password": "zxcvbn",
       "range": "administrador"
     },
     {
@@ -59,22 +38,13 @@
   ],
   "products": [
     {
-      "instrument": "guitarra eletrica",
+      "instrument": "guitarra electrica",
       "brand": "jackson",
-      "model": "RRR",
-      "specifics": "collor blanco con negro",
-      "price": "350000",
-      "imageUrl": "https://makemusic.pe/wp-content/uploads/2024/04/EILOEBNH1-Guitarra-Electrica-Epiphone_0-300x300.jpg",
-      "id": "21ce"
-    },
-    {
-      "id": "dfa8",
-      "instrument": "Guitarra electrica",
-      "brand": "jackson",
-      "model": "Dinky",
-      "specifics": "color blanco con mastil claro",
-      "price": "550000",
-      "imagenUrl": "https://www.mundomusicalcr.com/wp-content/uploads/0901129-0-300x300.jpg"
+      "model": "RR",
+      "specifics": "color blanca",
+      "price": "200000",
+      "imagenUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoeKFDzD5qkbru91KUyZ4TQYeOTNeVXTphgg&s",
+      "id": "dfa8"
     },
     {
       "id": "52fe",
@@ -176,13 +146,31 @@
       "imagenUrl": "https://masmusika.com/wp-content/uploads/img/p/I0708557-300x300.jpg?v=1670451588"
     },
     {
-      "id": "00cd",
-      "instrument": "guitarra electrica",
+      "id": "dfd0",
+      "instrument": "Guitarra electrica",
       "brand": "jackson",
-      "model": "les paul",
-      "specifics": "color mierda",
-      "price": "400000",
+      "model": "RR",
+      "specifics": "coolor blanco con negro",
+      "price": "375000",
       "imagenUrl": "https://makemusic.pe/wp-content/uploads/2024/04/EILOEBNH1-Guitarra-Electrica-Epiphone_0-300x300.jpg"
+    },
+    {
+      "id": "cf9b",
+      "instrument": "Paquete guitarra electrica",
+      "brand": "epiphone",
+      "model": "SG",
+      "specifics": "Color roja estuche suave y faja",
+      "price": "150000",
+      "imagenUrl": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/89a7f23d-7f73-4280-a485-4723a446e93c.__CR0,0,1525,1525_PT0_SX300_V1___.png"
+    },
+    {
+      "id": "c4c8",
+      "instrument": "Paquete guitarra electrica",
+      "brand": "epiphone",
+      "model": "les paul ",
+      "specifics": "color negro con estuche y mini amp",
+      "price": "195000",
+      "imagenUrl": "https://vastago.cr/wp-content/uploads/2019/10/Guitarra-electrica-Les-Paul-Epiphone-LP-Special-II-Sunburst-clasico.-Ebany-300x300.jpg"
     }
   ]
 }

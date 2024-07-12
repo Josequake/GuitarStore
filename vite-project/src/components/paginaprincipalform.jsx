@@ -8,6 +8,7 @@ import background3 from '../assets/img/jackson.png'
 import background4 from '../assets/img/epiphone.png'
 import '../styles/modificaciones.css'
 
+// Funcion principal
 const PaginaPrincipalForm = () => {
   const [products, setProducts] = useState([]);
   const [gibson] = useState('gibson');

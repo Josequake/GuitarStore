@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Swal from "sweetalert2";
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom for navigation
+import { Link } from 'react-router-dom'; 
 import '../styles/modificaciones.css'; 
 
 
@@ -22,12 +22,11 @@ const pagoform = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Aquí podrías enviar formData a tu backend para procesar el pago
+    
     console.log('Formulario enviado:', formData);
-    // Aquí deberías llamar a una API para procesar el pago y manejar la respuesta
-    // Por simplicidad, mostraremos un mensaje de éxito
+   
     Swal.fire("Payment processed correctly");
-    // Limpia el formulario después del envío exitoso
+    
     setFormData({
       cardName: '',
       cardNumber: '',
@@ -50,9 +49,7 @@ const pagoform = () => {
     <div className="payment-form-container">
       
       <h2 style={{ textAlign: 'center',marginTop:'20px' }}>Payment Form</h2>
-      <div >
-        <img src="../assets/img/tarjetas.png" style={{textAlign:'center'}}/>
-       </div>
+      
       <form onSubmit={handleSubmit} className="payment-form">
         <div className="form-group">
           <label htmlFor="cardName">Name on the card:</label>

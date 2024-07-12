@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
+// Este componente permite agregar un nuevo producto de instrumento.
+
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PostP from '../services/products/postP';
 import Swal from 'sweetalert2'
 import '../styles/modificaciones.css'
 
-
+//Funcion principal
 const agregarPform = () => {
-  
+  // Estados para manejar los campos del formulario.
   const [instrumento, setInstrumento] = useState("");
   const [marca, setMarca] = useState("");
   const [modelo, setModelo] = useState("");
@@ -14,11 +16,13 @@ const agregarPform = () => {
   const [precio, setPrecio] = useState("");
   const [imagen, setImagen] = useState("");
   
-
+// Función para enviar la solicitud POST al agregar un producto.
   const agregarProducto = async () => {
     try {
+      // Llama a la función de servicio para agregar el producto.
       await PostP(instrumento,marca,modelo,especificaciones,precio,imagen)
-      Swal.fire("Product entered successfully!");
+      Swal.fire("Product entered successfully!"); // Muestra una alerta de éxito utilizando SweetAlert2.
+      // Limpia los campos del formulario después de agregar el producto.
       setInstrumento("")
       setMarca("")
       setModelo("")
@@ -27,17 +31,13 @@ const agregarPform = () => {
       setImagen("")
     } catch (error) {
       alert('Error to add thje instrument: ' + error.message);
+      // Muestra un alerta de error en caso de falla.
       
     }
       
   };
-  useEffect(() => {
-    cargarProductos()
-  },[]);
-  const cargarProductos = () => {
-    
-  };
   
+  // JSX que representa el formulario de ingreso de productos.
   return (
     <div className='container' style={{border:'1px solid black',borderRadius:'7px'}}>
       <h1 className="titulo">

@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import GetU from '../services/users/getU'; 
 import background from '../assets/img/cielo.png';
 
+// Funcion principal 
 function Navbarform() {
   const [usuarioSi, setUsuarioSi] = useState('');
   const [userlog, setUserlog] = useState('');
@@ -29,6 +30,7 @@ function Navbarform() {
     UsuarioLogueado();
   }, []);
 
+  // Parte superior de la pagina principal
   return (
     <Navbar style={{backgroundImage: `url(${background})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat'}} className="bg-body-tertiary" expand="lg">
       <Container>
